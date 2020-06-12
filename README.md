@@ -25,9 +25,16 @@
 
 [4] Post http://zjg5l.mocklab.io/wxmini/homePageContent
     formData = {'lon':'115.02932', 'lat':'35.76189'}
+
     {
-      "result": "true",
-      "data": "some data"
+      "data": {
+        "slides": [
+          {"image": "https://raw.githubusercontent.com/songlin81/flutter_shop/master/images/1.jpg"},
+          {"image": "https://raw.githubusercontent.com/songlin81/flutter_shop/master/images/2.jpg"},
+          {"image": "https://raw.githubusercontent.com/songlin81/flutter_shop/master/images/3.jpg"},
+          {"image": "https://raw.githubusercontent.com/songlin81/flutter_shop/master/images/4.jpg"}
+        ]
+      }
     }
 
 [5]
