@@ -1,2 +1,2 @@
-http://zjg5l.mocklab.io/dabaojian?name=123
+http://zjg5l.mocklab.io/storecheck?name=123
 

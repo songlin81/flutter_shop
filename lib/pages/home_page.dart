@@ -9,6 +9,7 @@ class _HomePageState extends State<HomePage> {
 
   TextEditingController typeController = TextEditingController();
   String showText = '起始内容';
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +31,6 @@ class _HomePageState extends State<HomePage> {
               ),
               RaisedButton(
                 onPressed: (){
-
                 },
                 child: Text('选择完毕'),
               ),
@@ -44,6 +44,17 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  Future getHttp(String TypeText) async {
+    try{
+      Response response;
+      var data = {'name': TypeText};
+      response = await Dio().get('http://zjg5l.mocklab.io/storecheck');
+
+    }catch(e){
+
+    }
   }
 }
 
@@ -60,7 +71,7 @@ class _HomePageState extends State<HomePage> {
 //
 //  void getHttp() async {
 //    try{
-//      Response response = await Dio().get('http://zjg5l.mocklab.io/dabaojian?name=123');
+//      Response response = await Dio().get('http://zjg5l.mocklab.io/storecheck?name=123');
 //      return print(response);
 //    }catch(e){
 //      return print(e);
