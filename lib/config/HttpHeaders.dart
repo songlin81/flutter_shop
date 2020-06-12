@@ -1,0 +1,22 @@
+const httpHeaders = {
+  'access-control-allow-credentials': 'true',
+  'access-control-allow-origin': 'https://www.ctrip.com',
+  'access-control-expose-headers': 'RootMessageId',
+  'clogging_trace_id': '4054855600111083490',
+  'content-encoding': 'gzip',
+  'content-type': 'application/json;charset=UTF-8',
+  'date': 'Fri, 12 Jun 2020 05:38:57 GMT',
+  'rootmessageid': '921812-0a28461a-442205-3026420',
+  'server': 'nginx/1.16.1',
+  'servermessageid': '921812-0a28461a-442205-3026419',
+  'slb-http-protocol-version': 'HTTP/1.1',
+  'soa20-service-latency': '27',
+  'status': '200',
+  'vary': 'Accept-Encoding',
+  'x-gate': 'ctrip-gate',
+  'x-gate-instance': 'unknown',
+  'x-gate-region': 'SHAOY',
+  'x-gate-root-id': '921812-0a28461a-442205-3026420',
+  'x-originating-url': 'http://m.ctrip.com/restapi/soa2/13916/adexchange.json?_rm=0.4971458962125459',
+  'x-service-call': '0.029'
+ };

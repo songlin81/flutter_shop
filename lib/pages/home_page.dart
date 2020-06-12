@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import '../config/HttpHeaders.dart';
 
 class HomePage extends StatefulWidget{
   _HomePageState createState() => _HomePageState();
@@ -33,8 +34,10 @@ class _HomePageState extends State<HomePage> {
     try{
       Response response;
       Dio dio = new Dio();
-      response = await dio.get("https://time.geekbang.org/serv/v1/column/newAll");
+      dio.options.headers = httpHeaders;
+      response = await dio.get("https://m.ctrip.com/restapi/soa2/13916/adexchange.json?_rm=0.4971458962125459");
       print(response);
+      print('==>'+response.data.toString());
       return response.data;
     }catch(e){
       return print(e);
@@ -44,7 +47,7 @@ class _HomePageState extends State<HomePage> {
   void _buildAction(){
     getHttp().then((val){
         setState(() {
-          showText = val['data'].toString();
+          showText = val['ResponseStatus']['Timestamp'].toString();
         });
       }
     );
