@@ -22,3 +22,12 @@
 
 [3] F12 -> XHR to get Http Request and Copy link address:
     https://time.geekbang.org/serv/v1/column/newAll
+
+[4] Post http://zjg5l.mocklab.io/wxmini/homePageContent
+    formData = {'lon':'115.02932', 'lat':'35.76189'}
+    {
+      "result": "true",
+      "data": "some data"
+    }
+
+[5]

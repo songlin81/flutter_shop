@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
-import '../config/HttpHeaders.dart';
+import '../service/service_method.dart';
 
 class HomePage extends StatefulWidget{
   _HomePageState createState() => _HomePageState();
@@ -8,51 +7,87 @@ class HomePage extends StatefulWidget{
 
 class _HomePageState extends State<HomePage> {
 
-  String showText = '数据未加载';
+  String homePageContent = '正在获取数据';
+
+  @override
+  void initState(){
+    getHomePageContent().then((value){
+      setState(() {
+        homePageContent=value.toString();
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
-        appBar: AppBar(title: Text('远程数据请求'),),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              RaisedButton(
-                onPressed: _buildAction,
-                child: Text('请求数据'),
-              ),
-              Text(showText)
-            ],
-          ),
-        ),
+    return Scaffold(
+      appBar: AppBar(title: Text('商城首页'),),
+      body: SingleChildScrollView(
+        child: Text(homePageContent),
       ),
     );
   }
-
-  Future getHttp() async{
-    try{
-      Response response;
-      Dio dio = new Dio();
-      dio.options.headers = httpHeaders;
-      response = await dio.get("https://time.geekbang.org/serv/v1/column/newAll");
-      print(response);
-      print('==>'+response.data.toString());
-      return response.data;
-    }catch(e){
-      return print(e);
-    }
-  }
-
-  void _buildAction(){
-    getHttp().then((val){
-        setState(() {
-          showText = val['data'].toString();
-        });
-      }
-    );
-  }
 }
+
+
+//Section 0.3
+//import 'package:flutter/material.dart';
+//import 'package:dio/dio.dart';
+//import '../config/HttpHeaders.dart';
+//
+//class HomePage extends StatefulWidget{
+//  _HomePageState createState() => _HomePageState();
+//}
+//
+//class _HomePageState extends State<HomePage> {
+//
+//  String showText = '数据未加载';
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container(
+//      child: Scaffold(
+//        appBar: AppBar(title: Text('远程数据请求'),),
+//        body: SingleChildScrollView(
+//          child: Column(
+//            children: <Widget>[
+//              RaisedButton(
+//                onPressed: _buildAction,
+//                child: Text('请求数据'),
+//              ),
+//              Text(showText)
+//            ],
+//          ),
+//        ),
+//      ),
+//    );
+//  }
+//
+//  Future getHttp() async{
+//    try{
+//      Response response;
+//      Dio dio = new Dio();
+//      dio.options.headers = httpHeaders;
+//      response = await dio.get("https://time.geekbang.org/serv/v1/column/newAll");
+//      print(response);
+//      print('==>'+response.data.toString());
+//      return response.data;
+//    }catch(e){
+//      return print(e);
+//    }
+//  }
+//
+//  void _buildAction(){
+//    getHttp().then((val){
+//        setState(() {
+//          showText = val['data'].toString();
+//        });
+//      }
+//    );
+//  }
+//}
+
 
 //Section 0.2
 //import 'dart:convert';
