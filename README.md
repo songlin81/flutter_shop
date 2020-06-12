@@ -20,4 +20,5 @@
       }
     }
 
-[3]
+[3] F12 -> XHR to get Http Request and Copy link address:
+    https://time.geekbang.org/serv/v1/column/newAll
