@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../service/service_method.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'dart:convert';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget{
   _HomePageState createState() => _HomePageState();
@@ -24,6 +25,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    ScreenUtil.init(context, width: 750, height: 1334);
+    print('${ScreenUtil.pixelRatio} - ${ScreenUtil.screenHeight} - ${ScreenUtil.screenWidth}');
+
     return Scaffold(
       appBar: AppBar(title: Text('商城首页'),),
       body: FutureBuilder(
@@ -32,7 +37,6 @@ class _HomePageState extends State<HomePage> {
           if(snapshot.hasData){
             var data = json.decode(snapshot.data.toString());
             List<Map> swiper = (data['data']['slides'] as List).cast();
-            print(data['data']['slides'].runtimeType);
             return Column(
               children: <Widget>[
                 SwiperDiy(swiperDataList: swiper)
@@ -40,7 +44,7 @@ class _HomePageState extends State<HomePage> {
             );
           }else{
             return Center(
-              child: Text('加载中'),
+              child: Text('加载中', style: TextStyle(fontSize: ScreenUtil().setSp(28, allowFontScalingSelf: false)),),
             );
           }
         },
@@ -59,7 +63,8 @@ class SwiperDiy extends StatelessWidget{
 
   @override Widget build(BuildContext context) {
     return Container(
-      height: 180,
+      height: ScreenUtil().setHeight(300),
+      width: ScreenUtil().setWidth(750),
       child: Swiper(
         itemBuilder: (BuildContext context, int index){
           return Image.network(
