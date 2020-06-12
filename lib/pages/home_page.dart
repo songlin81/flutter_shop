@@ -31,14 +31,11 @@ class _HomePageState extends State<HomePage> {
         builder: (context, snapshot){
           if(snapshot.hasData){
             var data = json.decode(snapshot.data.toString());
-            print(data);
-            print(data['data']['slides']);
             List<Map> swiper = (data['data']['slides'] as List).cast();
             print(data['data']['slides'].runtimeType);
             return Column(
               children: <Widget>[
                 SwiperDiy(swiperDataList: swiper)
-                //SwiperDiy(swiperDataList: data['data']['slides'])
               ],
             );
           }else{
@@ -56,34 +53,20 @@ class _HomePageState extends State<HomePage> {
 }
 
 class SwiperDiy extends StatelessWidget{
+
   final List swiperDataList;
   SwiperDiy({this.swiperDataList});
 
-  List<String> banner = <String>[
-    'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8be2c9a7bf33fcb3ded7104f979f23e7.jpg',
-    'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4aa0cbfad7de34618c4bebdbdeee4e1.jpg',
-    'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/755aca9487082e7698e16f17cfb70839.jpg',
-    'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2f424f55554befb780ee50a761b2a768.jpg',
-    'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6bd4174b8c5aad67a64864a5716ad152.jpg',
-  ];
-
   @override Widget build(BuildContext context) {
     return Container(
-      height: 130,
+      height: 180,
       child: Swiper(
         itemBuilder: (BuildContext context, int index){
-          //print(swiperDataList[index]['image']);
-          print(banner[index]);
           return Image.network(
-            banner[index],
-            //swiperDataList[index]['image'],
+            "${swiperDataList[index]['image']}",
             width: 320,
             height: 180,
-            fit: BoxFit.cover,);
-
-//          print(index);
-//          print(swiperDataList[index]);
-//          return Image.network("${swiperDataList[index]}", fit: BoxFit.fill,);
+            fit: BoxFit.fill,);
         },
         itemCount: swiperDataList.length,
         pagination: SwiperPagination(),
