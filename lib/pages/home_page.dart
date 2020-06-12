@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
@@ -31,6 +33,7 @@ class _HomePageState extends State<HomePage> {
               ),
               RaisedButton(
                 onPressed: (){
+                  _choiceAction();
                 },
                 child: Text('选择完毕'),
               ),
@@ -46,14 +49,33 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void _choiceAction(){
+    if(typeController.text.toString()==''){
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(title: Text('不可为空'),)
+      );
+    }else{
+      getHttp(typeController.text.toString()).then((value){
+        setState((){
+          print(json.decode(value));
+          showText=json.decode(value)['name'].toString();
+        });
+      });
+    }
+  }
+
   Future getHttp(String TypeText) async {
     try{
       Response response;
       var data = {'name': TypeText};
-      response = await Dio().get('http://zjg5l.mocklab.io/storecheck');
-
+      response = await Dio().get(
+          'http://zjg5l.mocklab.io/storecheck',
+          queryParameters: data
+      );
+      return response.data;
     }catch(e){
-
+      print(e);
     }
   }
 }
