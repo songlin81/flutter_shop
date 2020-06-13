@@ -29,11 +29,24 @@
     {
       "data": {
         "slides": [
-          {"image": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8be2c9a7bf33fcb3ded7104f979f23e7.jpg"},
-          {"image": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4aa0cbfad7de34618c4bebdbdeee4e1.jpg"},
-          {"image": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/755aca9487082e7698e16f17cfb70839.jpg"},
-          {"image": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2f424f55554befb780ee50a761b2a768.jpg"},
-          {"image": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6bd4174b8c5aad67a64864a5716ad152.jpg"}
+          {"image": "http://47.104.244.246:5000/banners/banner1.jpg"},
+          {"image": "http://47.104.244.246:5000/banners/banner2.jpg"},
+          {"image": "http://47.104.244.246:5000/banners/banner3.jpg"},
+          {"image": "http://47.104.244.246:5000/banners/banner4.jpg"},
+          {"image": "http://47.104.244.246:5000/banners/banner5.jpg"}
+        ],
+        "category": [
+          {"mallCategoryName": "PC1", "image": "http://47.104.244.246:5000/category/myspace.png"},
+          {"mallCategoryName": "PC2", "image": "http://47.104.244.246:5000/category/linkedin.png"},
+          {"mallCategoryName": "PC3", "image": "http://47.104.244.246:5000/category/dribble.png"},
+          {"mallCategoryName": "PC4", "image": "http://47.104.244.246:5000/category/instagram.png"},
+          {"mallCategoryName": "PC5", "image": "http://47.104.244.246:5000/category/google-plus.png"},
+          {"mallCategoryName": "PC6", "image": "http://47.104.244.246:5000/category/facebook.png"},
+          {"mallCategoryName": "PC7", "image": "http://47.104.244.246:5000/category/twitter.png"},
+          {"mallCategoryName": "PC8", "image": "http://47.104.244.246:5000/category/task.png"},
+          {"mallCategoryName": "PC9", "image": "http://47.104.244.246:5000/category/reddit.png"},
+          {"mallCategoryName": "PC10", "image": "http://47.104.244.246:5000/category/instagram-new.png"},
+          {"mallCategoryName": "PC11", "image": "http://47.104.244.246:5000/category/file.png"}
         ]
       }
     }

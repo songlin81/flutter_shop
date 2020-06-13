@@ -25,10 +25,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
-    ScreenUtil.init(context, width: 750, height: 1334);
-    print('${ScreenUtil.pixelRatio} - ${ScreenUtil.screenHeight} - ${ScreenUtil.screenWidth}');
-
     return Scaffold(
       appBar: AppBar(title: Text('商城首页'),),
       body: FutureBuilder(
@@ -37,9 +33,11 @@ class _HomePageState extends State<HomePage> {
           if(snapshot.hasData){
             var data = json.decode(snapshot.data.toString());
             List<Map> swiper = (data['data']['slides'] as List).cast();
+            List<Map> navigatorList = (data['data']['category'] as List).cast();
             return Column(
               children: <Widget>[
-                SwiperDiy(swiperDataList: swiper)
+                SwiperDiy(swiperDataList: swiper),
+                TopNavigator(navigatorList: navigatorList)
               ],
             );
           }else{
@@ -76,6 +74,41 @@ class SwiperDiy extends StatelessWidget{
         itemCount: swiperDataList.length,
         pagination: SwiperPagination(),
         autoplay: true,
+      ),
+    );
+  }
+}
+
+class TopNavigator extends StatelessWidget {
+
+  final List navigatorList;
+  TopNavigator({this.navigatorList});
+
+  Widget _gridViewItemUI(BuildContext context, item){
+    return InkWell(
+      onTap: (){print('点击事件');},
+      child: Column(
+        children: <Widget>[
+          Image.network(item['image'], width: ScreenUtil().setWidth(95)),
+          Text(item['mallCategoryName'])
+        ],
+      ),
+    );
+  }
+
+  @override Widget build(BuildContext context) {
+    if(navigatorList.length>10){
+      this.navigatorList.removeRange(10, this.navigatorList.length);
+    }
+    return Container(
+      height: ScreenUtil().setHeight(320),
+      padding: EdgeInsets.all(3.0),
+      child: GridView.count(
+        crossAxisCount: 5,
+        padding: EdgeInsets.all(5.0),
+        children: navigatorList.map((item){
+          return _gridViewItemUI(context, item);
+        }).toList(),
       ),
     );
   }
