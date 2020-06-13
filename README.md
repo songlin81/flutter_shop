@@ -47,7 +47,8 @@
           {"mallCategoryName": "PC9", "image": "http://47.104.244.246:5000/category/reddit.png"},
           {"mallCategoryName": "PC10", "image": "http://47.104.244.246:5000/category/instagram-new.png"},
           {"mallCategoryName": "PC11", "image": "http://47.104.244.246:5000/category/file.png"}
-        ]
+        ],
+        "adPicture": { "Picture_Address": "http://47.104.244.246:5000/adbanners/adbanner1.jpg" }
       }
     }
 
