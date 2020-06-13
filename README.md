@@ -23,7 +23,7 @@
 [3] F12 -> XHR to get Http Request and Copy link address:
     https://time.geekbang.org/serv/v1/column/newAll
 
-[4] Post http://zjg5l.mocklab.io/wxmini/homePageContent
+[4] Post http://47.104.244.246:5000/homePageContent
     formData = {'lon':'115.02932', 'lat':'35.76189'}
 
     {
@@ -51,6 +51,6 @@
       }
     }
 
-[5] https://github.com/OpenFlutter/flutter_screenutil
+[5] https://apitester.com/
 
-[6] TBA
+[6] https://github.com/OpenFlutter/flutter_screenutil
