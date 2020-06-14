@@ -90,7 +90,6 @@
 
 [7] POST http://47.104.244.246:5000/homePageBelowContent
     formData = {'page':1}
-
     {
         "data": [
           {"name": "CC1", "image": "http://47.104.244.246:5000/category/myspace.png", "mallPrice":"10", "Price":"100"},

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import '../service/service_method.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'dart:convert';
@@ -14,6 +15,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
 
   int page = 1;
   List<Map> hotGoodsList = [];
+  GlobalKey<RefreshFooterState> _footerKey = new GlobalKey<RefreshFooterState>();
 
   @override
   bool get wantKeepAlive => true;
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   @override
   void initState(){
     super.initState();
-    _getHotGoods();
+    //_getHotGoods();
   }
 
   String homePageContent = '正在获取数据';
@@ -59,8 +61,20 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
             List<Map> floor2 = (data['data']['floor2'] as List).cast();
             String floor3Title = data['data']['floor3Pic']['Picture_Address'];
             List<Map> floor3 = (data['data']['floor3'] as List).cast();
-            return SingleChildScrollView(
-              child: Column(
+            //return SingleChildScrollView(
+
+            return EasyRefresh(
+              refreshFooter: ClassicsFooter(
+                key: _footerKey,
+                bgColor: Colors.white,
+                textColor: Colors.blueAccent,
+                moreInfoColor: Colors.pink,
+                showMore: true,
+                noMoreText: '',
+                moreInfo: '加载中',
+                loadReadyText: '上拉加载',
+              ),
+              child: ListView(
                 children: <Widget>[
                   SwiperDiy(swiperDataList: swiper),
                   TopNavigator(navigatorList: navigatorList),
@@ -77,7 +91,19 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
                   _hotGoods()
                 ],
               ),
+              loadMore:() async {
+                var formData = {'page':page};
+                await request('homePageBelowContent', formData: formData).then((value) {
+                  var data = json.decode(value.toString());
+                  List<Map> newGoodsList = (data['data'] as List).cast();
+                  setState(() {
+                    hotGoodsList.addAll(newGoodsList);
+                    page++;
+                  });
+                });
+              }
             );
+
           }else{
             return Center(
               child: Text('加载中', style: TextStyle(fontSize: ScreenUtil().setSp(28, allowFontScalingSelf: false)),),
@@ -91,17 +117,17 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     );
   }
 
-  void _getHotGoods(){
-    var formData = {'page':page};
-    request('homePageBelowContent', formData: formData).then((value) {
-      var data = json.decode(value.toString());
-      List<Map> newGoodsList = (data['data'] as List).cast();
-      setState(() {
-        hotGoodsList.addAll(newGoodsList);
-        page++;
-      });
-    });
-  }
+//  void _getHotGoods(){
+//    var formData = {'page':page};
+//    request('homePageBelowContent', formData: formData).then((value) {
+//      var data = json.decode(value.toString());
+//      List<Map> newGoodsList = (data['data'] as List).cast();
+//      setState(() {
+//        hotGoodsList.addAll(newGoodsList);
+//        page++;
+//      });
+//    });
+//  }
 
   Widget hotTitle = Container(
     margin: EdgeInsets.only(top: 10.0),
@@ -216,6 +242,7 @@ class TopNavigator extends StatelessWidget {
       height: ScreenUtil().setHeight(320),
       padding: EdgeInsets.all(3.0),
       child: GridView.count(
+        physics: NeverScrollableScrollPhysics(),
         crossAxisCount: 5,
         padding: EdgeInsets.all(5.0),
         children: navigatorList.map((item){
