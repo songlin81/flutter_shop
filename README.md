@@ -57,13 +57,29 @@
             {"mallPrice":"40", "Price":"400", "image": "http://47.104.244.246:5000/products/engine4.jpg"},
             {"mallPrice":"50", "Price":"500", "image": "http://47.104.244.246:5000/products/engine5.jpg"}
         ],
-        "floor1Pic": {"Picture_Address" : "http://47.104.244.246:5000/floor/floorbanner.jpg"}，
+        "floor1Pic": {"Picture_Address" : "http://47.104.244.246:5000/floor/floorbanner.jpg"},
         "floor1": [
             {"image": "http://47.104.244.246:5000/floor/gear1.jpg"},
             {"image": "http://47.104.244.246:5000/floor/gear2.jpg"},
             {"image": "http://47.104.244.246:5000/floor/gear3.jpg"},
             {"image": "http://47.104.244.246:5000/floor/gear4.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/gear5.jpg"},
+            {"image": "http://47.104.244.246:5000/floor/gear5.jpg"}
+        ],
+        "floor2Pic": {"Picture_Address" : "http://47.104.244.246:5000/floor/tirebanner.jpg"},
+        "floor2": [
+            {"image": "http://47.104.244.246:5000/floor/tire1.jpg"},
+            {"image": "http://47.104.244.246:5000/floor/tire2.jpg"},
+            {"image": "http://47.104.244.246:5000/floor/tire3.jpg"},
+            {"image": "http://47.104.244.246:5000/floor/tire4.jpg"},
+            {"image": "http://47.104.244.246:5000/floor/tire5.jpg"}
+        ],
+        "floor3Pic": {"Picture_Address" : "http://47.104.244.246:5000/floor/suspensionbanner.jpg"},
+        "floor3": [
+            {"image": "http://47.104.244.246:5000/floor/suspension1.jpg"},
+            {"image": "http://47.104.244.246:5000/floor/suspension2.jpg"},
+            {"image": "http://47.104.244.246:5000/floor/suspension3.jpg"},
+            {"image": "http://47.104.244.246:5000/floor/suspension4.jpg"},
+            {"image": "http://47.104.244.246:5000/floor/suspension5.jpg"}
         ]
       }
     }
@@ -71,3 +87,5 @@
 [5] https://apitester.com/
 
 [6] https://github.com/OpenFlutter/flutter_screenutil
+
+[7] POST http://47.104.244.246:5000/homePageBelowContent

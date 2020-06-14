@@ -18,7 +18,6 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   @override
   void initState(){
     super.initState();
-    print("111");
   }
 
   String homePageContent = '正在获取数据';
@@ -35,10 +34,12 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
 
   @override
   Widget build(BuildContext context) {
+    var formData = {'lon':'115.02932', 'lat':'35.76189'};
     return Scaffold(
       appBar: AppBar(title: Text('商城首页'),),
       body: FutureBuilder(
-        future: getHomePageContent(),
+        //future: getHomePageContent(),
+        future: request('homePageContent', formData),
         builder: (context, snapshot){
           if(snapshot.hasData){
             var data = json.decode(snapshot.data.toString());
@@ -50,6 +51,10 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
             List<Map> recommendList = (data['data']['recommend'] as List).cast();
             String floorTitle = data['data']['floor1Pic']['Picture_Address'];
             List<Map> floor1 = (data['data']['floor1'] as List).cast();
+            String floor2Title = data['data']['floor2Pic']['Picture_Address'];
+            List<Map> floor2 = (data['data']['floor2'] as List).cast();
+            String floor3Title = data['data']['floor3Pic']['Picture_Address'];
+            List<Map> floor3 = (data['data']['floor3'] as List).cast();
             return SingleChildScrollView(
               child: Column(
                 children: <Widget>[
@@ -59,7 +64,12 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
                   ContactPhone(contactImage: contactImage, contactPhoneNumber: contactPhoneNumber),
                   Recommend(recommendList: recommendList),
                   FloorTitle(picture_address: floorTitle),
-                  FloorContent(floorGoodsList: floor1)
+                  FloorContent(floorGoodsList: floor1),
+                  FloorTitle(picture_address: floor2Title),
+                  FloorContent(floorGoodsList: floor2),
+                  FloorTitle(picture_address: floor3Title),
+                  FloorContent(floorGoodsList: floor3),
+                  HotGoods()
                 ],
               ),
             );
@@ -308,6 +318,7 @@ class FloorContent extends StatelessWidget{
   Widget _goodsItem(Map goods){
     return Container(
       width: ScreenUtil().setWidth(750/2),
+      height: ScreenUtil().setHeight(140),
       child: InkWell(
         onTap: (){print('点击了商品');},
         child: Image.network(goods['image']),
@@ -316,6 +327,31 @@ class FloorContent extends StatelessWidget{
   }
 }
 
+
+class HotGoods extends StatefulWidget {
+  _HotGoodsState createState() => _HotGoodsState();
+}
+
+class _HotGoodsState extends State<HotGoods>{
+  
+  @override
+  void initState(){
+    super.initState();
+    request('homePageBelowContent', 1).then((value){
+      print(value);
+      //      setState(() {
+//        homePageContent=value.toString();
+//      });
+    });
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('temp'),
+    );
+  }
+}
 
 //Section 0.3
 //import 'package:flutter/material.dart';
