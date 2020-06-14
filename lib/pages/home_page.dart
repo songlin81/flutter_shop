@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   @override
   void initState(){
     super.initState();
-    //_getHotGoods();
+    _getHotGoods();
   }
 
   String homePageContent = '正在获取数据';
@@ -117,17 +117,17 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     );
   }
 
-//  void _getHotGoods(){
-//    var formData = {'page':page};
-//    request('homePageBelowContent', formData: formData).then((value) {
-//      var data = json.decode(value.toString());
-//      List<Map> newGoodsList = (data['data'] as List).cast();
-//      setState(() {
-//        hotGoodsList.addAll(newGoodsList);
-//        page++;
-//      });
-//    });
-//  }
+  void _getHotGoods(){
+    var formData = {'page':page};
+    request('homePageBelowContent', formData: formData).then((value) {
+      var data = json.decode(value.toString());
+      List<Map> newGoodsList = (data['data'] as List).cast();
+      setState(() {
+        hotGoodsList.addAll(newGoodsList);
+        page++;
+      });
+    });
+  }
 
   Widget hotTitle = Container(
     margin: EdgeInsets.only(top: 10.0),

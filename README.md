@@ -105,3 +105,15 @@
           {"name": "CC11", "image": "http://47.104.244.246:5000/category/file.png", "mallPrice":"40", "Price":"400"}
         ]
     }
+
+[8] GET http://47.104.244.246:5000/getCategory
+    {
+        "data": [
+          {"mallSubId": "40f83f647d964474af795994995e758d", "mallSubName": "Luk", "comments": null},
+          {"mallSubId": "1df65ddea97e4afcb9e1a40468a785c2", "mallSubName": "Pool", "comments": null},
+          {"mallSubId": "25044e46c0e8449282142f4b4d1dd24d", "mallSubName": "Puk", "comments": null},
+          {"mallSubId": "aa6773c3251a429c84c24a380dd89a82", "mallSubName": "Zen", "comments": null},
+        ]
+    }
+
+[9] TO DO 22...
