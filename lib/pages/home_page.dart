@@ -12,12 +12,16 @@ class HomePage extends StatefulWidget{
 
 class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
 
+  int page = 1;
+  List<Map> hotGoodsList = [];
+
   @override
   bool get wantKeepAlive => true;
 
   @override
   void initState(){
     super.initState();
+    _getHotGoods();
   }
 
   String homePageContent = '正在获取数据';
@@ -69,7 +73,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
                   FloorContent(floorGoodsList: floor2),
                   FloorTitle(picture_address: floor3Title),
                   FloorContent(floorGoodsList: floor3),
-                  HotGoods()
+                  //HotGoods()
+                  _hotGoods()
                 ],
               ),
             );
@@ -83,6 +88,80 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
 //      body: SingleChildScrollView(
 //        child: Text(homePageContent),
 //      ),
+    );
+  }
+
+  void _getHotGoods(){
+    var formData = {'page':page};
+    request('homePageBelowContent', formData: formData).then((value) {
+      var data = json.decode(value.toString());
+      List<Map> newGoodsList = (data['data'] as List).cast();
+      setState(() {
+        hotGoodsList.addAll(newGoodsList);
+        page++;
+      });
+    });
+  }
+
+  Widget hotTitle = Container(
+    margin: EdgeInsets.only(top: 10.0),
+    alignment: Alignment.center,
+    color: Colors.transparent,
+    padding: EdgeInsets.all(5.0),
+    child: Text('On Sales'),
+  );
+
+  Widget _wrapList(){
+    if(hotGoodsList.length!=0){
+      List<Widget> listWidget = hotGoodsList.map((val){
+        return InkWell(
+          onTap: (){},
+          child: Container(
+            width: ScreenUtil().setWidth(372),
+            color: Colors.white,
+            padding: EdgeInsets.all(5.0),
+            margin: EdgeInsets.only(bottom: 3.0),
+            child: Column(
+              children: <Widget>[
+                Image.network(val['image'], width: ScreenUtil().setWidth(370),),
+                Text(
+                  val['name'],
+                  maxLines: 1, 
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.pink, fontSize: ScreenUtil().setSp(26)),
+                ),
+                Row(
+                  children: <Widget>[
+                    Text("RMB ${val['mallPrice']} "),
+                    Text(
+                      "RMB ${val['Price']}",
+                      style: TextStyle(color: Colors.black26, decoration: TextDecoration.lineThrough),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        );
+      }).toList();
+
+      return Wrap(
+        spacing: 2,
+        children: listWidget,
+      );
+    }else{
+      return Text('');
+    }
+  }
+
+  Widget _hotGoods(){
+    return Container(
+      child: Column(
+        children: <Widget>[
+          hotTitle,
+          _wrapList()
+        ],
+      ),
     );
   }
 }
@@ -328,30 +407,28 @@ class FloorContent extends StatelessWidget{
 }
 
 
-class HotGoods extends StatefulWidget {
-  _HotGoodsState createState() => _HotGoodsState();
-}
-
-class _HotGoodsState extends State<HotGoods>{
-  
-  @override
-  void initState(){
-    super.initState();
-    request('homePageBelowContent', formData: 1).then((value){
-      print(value);
-      //      setState(() {
-//        homePageContent=value.toString();
-//      });
-    });
-  }
-  
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text('temp'),
-    );
-  }
-}
+//class HotGoods extends StatefulWidget {
+//  _HotGoodsState createState() => _HotGoodsState();
+//}
+//
+//class _HotGoodsState extends State<HotGoods>{
+//  @override
+//  void initState(){
+//    super.initState();
+//    request('homePageBelowContent', formData: 1).then((value){
+//      //      setState(() {
+////        homePageContent=value.toString();
+////      });
+//    });
+//  }
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container(
+//      child: Text('temp'),
+//    );
+//  }
+//}
 
 //Section 0.3
 //import 'package:flutter/material.dart';
