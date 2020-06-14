@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
       appBar: AppBar(title: Text('商城首页'),),
       body: FutureBuilder(
         //future: getHomePageContent(),
-        future: request('homePageContent', formData),
+        future: request('homePageContent', formData: formData),
         builder: (context, snapshot){
           if(snapshot.hasData){
             var data = json.decode(snapshot.data.toString());
@@ -337,7 +337,7 @@ class _HotGoodsState extends State<HotGoods>{
   @override
   void initState(){
     super.initState();
-    request('homePageBelowContent', 1).then((value){
+    request('homePageBelowContent', formData: 1).then((value){
       print(value);
       //      setState(() {
 //        homePageContent=value.toString();
