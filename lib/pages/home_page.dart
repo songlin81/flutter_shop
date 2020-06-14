@@ -4,12 +4,22 @@ import '../service/service_method.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'dart:convert';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget{
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  void initState(){
+    super.initState();
+    print("111");
+  }
 
   String homePageContent = '正在获取数据';
 
@@ -35,12 +45,19 @@ class _HomePageState extends State<HomePage> {
             List<Map> swiper = (data['data']['slides'] as List).cast();
             List<Map> navigatorList = (data['data']['category'] as List).cast();
             String adPicture = data['data']['adPicture']['Picture_Address'];
-            return Column(
-              children: <Widget>[
-                SwiperDiy(swiperDataList: swiper),
-                TopNavigator(navigatorList: navigatorList),
-                AdBanner(adPicture: adPicture)
-              ],
+            String contactImage = data['data']['shopInfo']['contactImage'];
+            String contactPhoneNumber = data['data']['shopInfo']['contactPhoneNumber'];
+            List<Map> recommendList = (data['data']['recommend'] as List).cast();
+            return SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  SwiperDiy(swiperDataList: swiper),
+                  TopNavigator(navigatorList: navigatorList),
+                  AdBanner(adPicture: adPicture),
+                  ContactPhone(contactImage: contactImage, contactPhoneNumber: contactPhoneNumber),
+                  Recommend(recommendList: recommendList,)
+                ],
+              ),
             );
           }else{
             return Center(
@@ -117,8 +134,8 @@ class TopNavigator extends StatelessWidget {
 }
 
 class AdBanner extends StatelessWidget {
-  final String adPicture;
 
+  final String adPicture;
   AdBanner({Key key, this.adPicture}) : super(key: key);
 
   @override
@@ -128,6 +145,114 @@ class AdBanner extends StatelessWidget {
     );
   }
 }
+
+class ContactPhone extends StatelessWidget {
+
+  final String contactImage;
+  final String contactPhoneNumber;
+  ContactPhone({Key key, this.contactImage, this.contactPhoneNumber}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: InkWell(
+        onTap:_launchURL,
+        child: Image.network(contactImage),
+      ),
+    );
+  }
+
+  void _launchURL() async{
+    String url = 'tel:'+contactPhoneNumber;
+    if(await canLaunch(url)){
+      await launch(url);
+    }else{
+      throw 'cannot dial through...';
+    }
+  }
+}
+
+class Recommend extends StatelessWidget{
+  final List recommendList;
+  Recommend({Key key, this.recommendList}) : super(key: key);
+
+  Widget _titleWidget(){
+    return Container(
+      alignment: Alignment.centerLeft,
+      padding: EdgeInsets.fromLTRB(10.0, 2.0, 0, 5.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border(
+          bottom: BorderSide(width: 0.5, color: Colors.black12)
+        )
+      ),
+      child: Text(
+        '商品推荐',
+        style: TextStyle(color: Colors.pink),
+      ),
+    );
+  }
+
+  Widget _item(index){
+    return InkWell(
+      onTap: (){},
+      child: Container(
+        height: ScreenUtil().setHeight(330),
+        width: ScreenUtil().setWidth(250),  // =750/3
+        padding: EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border(
+            left: BorderSide(width: 1.0, color: Colors.black12)
+          )
+        ),
+        child: Column(
+          children: <Widget>[
+            Image.network(recommendList[index]['image'], width: ScreenUtil().setWidth(200)),
+            Text(new String.fromCharCodes(new Runes('\u0024'))+"${recommendList[index]['mallPrice']}"),
+            Text(
+              new String.fromCharCodes(new Runes('\u0024'))+"${recommendList[index]['Price']}",
+              style: TextStyle(
+                decoration: TextDecoration.lineThrough,
+                color: Colors.grey
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _recommendList(){
+    return Container(
+      height: ScreenUtil().setHeight(330),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: recommendList.length,
+        itemBuilder: (context, index){
+          return _item(index);
+        },
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: ScreenUtil().setHeight(380),
+      margin: EdgeInsets.only(top: 10.0),
+      child: Column(
+        children: <Widget>[
+          _titleWidget(),
+          _recommendList()
+        ],
+      ),
+    );
+  }
+}
+
+
+
 
 //Section 0.3
 //import 'package:flutter/material.dart';

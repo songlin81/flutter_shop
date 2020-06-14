@@ -48,7 +48,15 @@
           {"mallCategoryName": "PC10", "image": "http://47.104.244.246:5000/category/instagram-new.png"},
           {"mallCategoryName": "PC11", "image": "http://47.104.244.246:5000/category/file.png"}
         ],
-        "adPicture": { "Picture_Address": "http://47.104.244.246:5000/adbanners/adbanner1.jpg" }
+        "adPicture": {"Picture_Address": "http://47.104.244.246:5000/adbanners/adbanner1.jpg"},
+        "shopInfo": {"contactImage": "http://47.104.244.246:5000/shopinfo/contact.jpg", "contactPhoneNumber": "10010"},
+        "recommend": [
+                  {"mallPrice":"10", "Price":"100", "image": "http://47.104.244.246:5000/products/engine1.jpg"},
+                  {"mallPrice":"20", "Price":"200", "image": "http://47.104.244.246:5000/products/engine2.jpg"},
+                  {"mallPrice":"30", "Price":"300", "image": "http://47.104.244.246:5000/products/engine3.jpg"},
+                  {"mallPrice":"40", "Price":"400", "image": "http://47.104.244.246:5000/products/engine4.jpg"},
+                  {"mallPrice":"50", "Price":"500", "image": "http://47.104.244.246:5000/products/engine5.jpg"}
+        ]
       }
     }
 
