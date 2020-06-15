@@ -1,6 +1,5 @@
 [1] Get http://zjg5l.mocklab.io/storecheck?name=123
     /storecheck?name=123
-
     {
       "success": true,
       "data": {
@@ -12,7 +11,6 @@
     {
       "name": "123"
     }
-
     {
       "success": true,
       "data": {
@@ -20,12 +18,10 @@
       }
     }
 
-[3] F12 -> XHR to get Http Request and Copy link address:
-    https://time.geekbang.org/serv/v1/column/newAll
+[3] F12 -> XHR to get Http Request and Copy link address: https://time.geekbang.org/serv/v1/column/newAll
 
 [4] Post http://47.104.244.246:5000/homePageContent
     formData = {'lon':'115.02932', 'lat':'35.76189'}
-
     {
       "data": {
         "slides": [
@@ -86,9 +82,7 @@
 
 [5] https://apitester.com/
 
-[6] https://github.com/OpenFlutter/flutter_screenutil
-
-[7] POST http://47.104.244.246:5000/homePageBelowContent
+[6] POST http://47.104.244.246:5000/homePageBelowContent
     formData = {'page':1}
     {
         "data": [
@@ -106,7 +100,7 @@
         ]
     }
 
-[8] GET http://47.104.244.246:5000/getCategory
+[7] GET http://47.104.244.246:5000/getCategory
     {
         "data": [
           {"mallSubId": "40f83f647d964474af795994995e758d", "mallSubName": "Luk", "comments": null},
@@ -116,4 +110,4 @@
         ]
     }
 
-[9] TO DO 22...
+[9] TO DO 22.

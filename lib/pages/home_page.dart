@@ -261,7 +261,8 @@ class AdBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Image.network(adPicture),
+      padding: EdgeInsets.all(8.0),
+      child: Image.network(adPicture, fit: BoxFit.fill),
     );
   }
 }
@@ -378,7 +379,7 @@ class FloorTitle extends StatelessWidget{
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8.0),
-      child: Image.network(picture_address),
+      child: Image.network(picture_address, fit: BoxFit.fill),
     );
   }
 }
@@ -389,6 +390,7 @@ class FloorContent extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
+
       child: Column(
         children: <Widget>[
           _firstRow(),
@@ -427,7 +429,7 @@ class FloorContent extends StatelessWidget{
       height: ScreenUtil().setHeight(140),
       child: InkWell(
         onTap: (){print('点击了商品');},
-        child: Image.network(goods['image']),
+        child: Image.network(goods['image'],  fit: BoxFit.fitHeight),
       ),
     );
   }
