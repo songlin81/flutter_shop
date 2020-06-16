@@ -110,4 +110,30 @@
         ]
     }
 
-[9] TO DO 22.
+[9] 22.
+    {
+          "code": "0",
+          "message": "success",
+          "data": [
+              {
+                "mallCategoryId": "4",
+                "mallCategoryName": "A1",
+                "bxMallSubDto": [
+                    {"mallSubId": "103c3881984d4e10a7787ed874bfa9bc", "mallCategoryId": "4", "mallSubName": "a01", "comments": null},
+                    {"mallSubId": "def1370defc145e2aed3ae642a6a9e77", "mallCategoryId": "4", "mallSubName": "a02", "comments": null}
+                ],
+                "comments": null,
+                "image": "http://47.104.244.246:5000/category/g1/g01.jpg"
+              },
+              {
+                "mallCategoryId": "1",
+                "mallCategoryName": "B1",
+                "bxMallSubDto": [
+                  {"mallSubId": "735dfddad0624e109936557f41edf6ba", "mallCategoryId": "1", "mallSubName": "b01", "comments": null},
+                  {"mallSubId": "69ebc83f97f1478db25ec0470e63a783", "mallCategoryId": "1", "mallSubName": "b02", "comments": null}
+                ],
+                "comments": null,
+                "image": "http://47.104.244.246:5000/category/g2/g01.jpg"
+              },
+          ]
+    }
