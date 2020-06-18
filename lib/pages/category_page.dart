@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provide/provide.dart';
 import '../provide/child_category.dart';
 import '../model/category.dart';
+import '../provide/category_goods_list.dart';
 
 class CategoryPage extends StatefulWidget {
   _CategoryPageState createState() => _CategoryPageState();
@@ -84,6 +85,8 @@ class _LeftCategoryNavState extends State<LeftCategoryNav>{
         });
         var childList = list[index].bxMallSubDto;
         Provide.value<ChildCategory>(context).getChildCategory(childList);
+        var categoryId = list[index].mallCategoryId;
+        _getGoodsList(categoryId: categoryId);
       },
       child: Container(
         height: ScreenUtil().setHeight(100),
@@ -110,6 +113,24 @@ class _LeftCategoryNavState extends State<LeftCategoryNav>{
 
       //      CategoryBigListModel list = CategoryBigListModel.fromJson(data['data']);
       //      list.data.forEach((item) => print(item.mallCategoryName));
+    });
+  }
+
+  void _getGoodsList({String categoryId}) async{
+    var data = {
+      'CategoryId' : categoryId==null?'4':categoryId,
+      'CategorySubId' : '',
+      'page' : 1
+    };
+
+    await request('getMallGoods', formData: data).then((val){
+      var data = json.decode(val.toString());
+      CategoryGoodsListModel goodsList = CategoryGoodsListModel.fromJson(data);
+      Provide.value<CategoryGoodsListProvide>(context).getGoodsList(goodsList.data);
+//      setState(() {
+//        list = goodsList.data;
+//      });
+      //print('==>${goodsList.data[0].goodsName}');
     });
   }
 }
@@ -169,31 +190,95 @@ class CategoryGoodsList extends StatefulWidget{
 
 class _CategoryGoodsListState extends State<CategoryGoodsList>{
 
+  //List list = [];
+
   @override
   void initState(){
-    _getGoodsList();
+    //_getGoodsList();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('商品列表'),
+    return Provide<CategoryGoodsListProvide>(
+      builder: (context, child, data){
+        return Container(
+          width: ScreenUtil().setWidth(570),
+          height: ScreenUtil().setHeight(1000),
+          child: ListView.builder(
+            itemCount: data.goodsList.length,
+            itemBuilder: (context, index){
+              return _ListWidget(data.goodsList, index);
+            },
+          ),
+        );
+      },
     );
   }
 
-  void _getGoodsList() async{
-    var data = {
-      'CategoryId' : '4',
-      'CategorySubId' : '',
-      'page' : 1
-    };
+  Widget _goodsImage(List newList, index){
+    return Container(
+      width: ScreenUtil().setWidth(200),
+      child: Image.network(newList[index].image),
+    );
+  }
 
-    await request('getMallGoods', formData: data).then((val){
-      var data = json.decode(val.toString());
-      CategoryGoodsListModel goodsList = CategoryGoodsListModel.fromJson(data);
-      print('==>${goodsList.data[0].goodsName}');
-    });
+  Widget _goodsName(List newList, index){
+    return Container(
+      padding: EdgeInsets.all(5.0),
+      width: ScreenUtil().setWidth(370),
+      child: Text(
+        newList[index].goodsName,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: ScreenUtil().setSp(28)),
+      ),
+    );
+  }
+
+  Widget _goodsPrice(List newList, index){
+    return Container(
+      width: ScreenUtil().setWidth(370),
+      margin: EdgeInsets.only(top: 20),
+      child: Row(
+        children: <Widget>[
+          Text(
+              '价格: ${newList[index].presentPrice}',
+              style: TextStyle(color: Colors.pink, fontSize: ScreenUtil().setSp(30))
+          ),
+          Text(
+              '价格: ${newList[index].oriPrice}',
+              style: TextStyle(color: Colors.black26, decoration: TextDecoration.lineThrough)
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _ListWidget(List newList, int index) {
+    return InkWell(
+      onTap: (){},
+      child: Container(
+        padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border(
+            bottom: BorderSide(width: 1.0, color: Colors.black12)
+          )
+        ),
+        child: Row(
+          children: <Widget>[
+            _goodsImage(newList, index),
+            Column(
+              children: <Widget>[
+                _goodsName(newList, index),
+                _goodsPrice(newList, index)
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
