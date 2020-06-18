@@ -1,4 +1,4 @@
-# flutter e-Shop POC
+# Flutter e-Shop POC
 
 ## Preview
 
