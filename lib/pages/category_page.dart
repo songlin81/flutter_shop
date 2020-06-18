@@ -29,7 +29,8 @@ class _CategoryPageState extends State<CategoryPage>{
             LeftCategoryNav(),
             Column(
              children: <Widget>[
-               RightCategoryNav()
+               RightCategoryNav(),
+               CategoryGoodsList()
              ],
             )
           ],
@@ -107,7 +108,7 @@ class _LeftCategoryNavState extends State<LeftCategoryNav>{
       Provide.value<ChildCategory>(context).getChildCategory(list[0].bxMallSubDto);
 
       //      CategoryBigListModel list = CategoryBigListModel.fromJson(data['data']);
-//      list.data.forEach((item) => print(item.mallCategoryName));
+      //      list.data.forEach((item) => print(item.mallCategoryName));
     });
   }
 }
@@ -160,5 +161,38 @@ class _RightCategoryNavState extends State<RightCategoryNav>{
   }
 }
 
+class CategoryGoodsList extends StatefulWidget{
+  @override
+  _CategoryGoodsListState createState() => _CategoryGoodsListState();
+}
+
+class _CategoryGoodsListState extends State<CategoryGoodsList>{
+
+  @override
+  void initState(){
+    _getGoodsList();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('商品列表'),
+    );
+  }
+
+  void _getGoodsList() async{
+    var data = {
+      'CategoryId' : '4',
+      'CategorySubId' : '',
+      'page' : 1
+    };
+
+    await request('getMallGoods', formData: data).then((val){
+      var data = json.decode(val.toString());
+      print('====>${val}');
+    });
+  }
+}
 
 
