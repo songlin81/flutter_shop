@@ -9,6 +9,7 @@ import 'package:provide/provide.dart';
 import '../provide/child_category.dart';
 import '../model/category.dart';
 import '../provide/category_goods_list.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class CategoryPage extends StatefulWidget {
   _CategoryPageState createState() => _CategoryPageState();
@@ -177,7 +178,7 @@ class _RightCategoryNavState extends State<RightCategoryNav>{
     print(Provide.value<ChildCategory>(context).childIndex);
     return InkWell(
       onTap: (){
-        Provide.value<ChildCategory>(context).changeChildIndex(index);
+        Provide.value<ChildCategory>(context).changeChildIndex(index, item.mallSubId);
         _getGoodsList(item.mallSubId);
       },
       child: Container(
@@ -221,6 +222,7 @@ class CategoryGoodsList extends StatefulWidget{
 class _CategoryGoodsListState extends State<CategoryGoodsList>{
 
   //List list = [];
+  GlobalKey<RefreshFooterState> _footerKey = new GlobalKey<RefreshFooterState>();
 
   @override
   void initState(){
@@ -237,12 +239,28 @@ class _CategoryGoodsListState extends State<CategoryGoodsList>{
             child: Container(
               width: ScreenUtil().setWidth(570),
               //height: ScreenUtil().setHeight(1000),
-              child: ListView.builder(
-                itemCount: data.goodsList.length,
-                itemBuilder: (context, index){
-                  return _ListWidget(data.goodsList, index);
+              child: EasyRefresh(
+                refreshFooter: ClassicsFooter(
+                  key: _footerKey,
+                  bgColor: Colors.white,
+                  textColor: Colors.blueAccent,
+                  moreInfoColor: Colors.pink,
+                  showMore: true,
+                  noMoreText: Provide.value<ChildCategory>(context).noMoreText,
+                  moreInfo: '加载中',
+                  loadReadyText: '上拉加载',
+                ),
+                child: ListView.builder(
+                  itemCount: data.goodsList.length,
+                  itemBuilder: (context, index){
+                    return _ListWidget(data.goodsList, index);
+                  },
+                ),
+                loadMore:() async {
+                  print('Up to Refresh...');
+                  _getMoreList();
                 },
-              ),
+              )
             ),
           );
         } else{
@@ -250,6 +268,27 @@ class _CategoryGoodsListState extends State<CategoryGoodsList>{
         }
       },
     );
+  }
+
+  void _getMoreList(){
+    Provide.value<ChildCategory>(context).addPage();
+
+    var data = {
+      'CategoryId' : Provide.value<ChildCategory>(context).categoryId,
+      'CategorySubId' : Provide.value<ChildCategory>(context).subId,
+      'page' : Provide.value<ChildCategory>(context).page
+    };
+
+    request('getMallGoods', formData: data).then((val){
+      var data = json.decode(val.toString());
+      CategoryGoodsListModel goodsList = CategoryGoodsListModel.fromJson(data);
+
+      if(goodsList.data==null) {
+        Provide.value<ChildCategory>(context).changeNoMore('没有更多了');
+      }else{
+        Provide.value<CategoryGoodsListProvide>(context).getMoreList(goodsList.data);
+      }
+    });
   }
 
   Widget _goodsImage(List newList, index){
