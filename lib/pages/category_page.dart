@@ -232,6 +232,13 @@ class _CategoryGoodsListState extends State<CategoryGoodsList>{
 
   @override
   Widget build(BuildContext context) {
+    try{
+      if(Provide.value<ChildCategory>(context).page==1)
+        ;
+    }catch(e){
+      print('init load...');
+    }
+
     return Provide<CategoryGoodsListProvide>(
       builder: (context, child, data){
         if(data.goodsList.length>0){
