@@ -85,8 +85,8 @@ class _LeftCategoryNavState extends State<LeftCategoryNav>{
           listIndex=index;
         });
         var childList = list[index].bxMallSubDto;
-        Provide.value<ChildCategory>(context).getChildCategory(childList);
         var categoryId = list[index].mallCategoryId;
+        Provide.value<ChildCategory>(context).getChildCategory(childList, categoryId);
         _getGoodsList(categoryId: categoryId);
       },
       child: Container(
@@ -110,21 +110,21 @@ class _LeftCategoryNavState extends State<LeftCategoryNav>{
       setState(() {
         list=category.data;
       });
-      Provide.value<ChildCategory>(context).getChildCategory(list[0].bxMallSubDto);
+      Provide.value<ChildCategory>(context).getChildCategory(list[0].bxMallSubDto, list[0].mallCategoryId);
 
       //      CategoryBigListModel list = CategoryBigListModel.fromJson(data['data']);
       //      list.data.forEach((item) => print(item.mallCategoryName));
     });
   }
 
-  void _getGoodsList({String categoryId}) async{
+  void _getGoodsList({String categoryId}){
     var data = {
       'CategoryId' : categoryId==null?'4':categoryId,
       'CategorySubId' : '',
       'page' : 1
     };
 
-    await request('getMallGoods', formData: data).then((val){
+    request('getMallGoods', formData: data).then((val){
       var data = json.decode(val.toString());
       CategoryGoodsListModel goodsList = CategoryGoodsListModel.fromJson(data);
       Provide.value<CategoryGoodsListProvide>(context).getGoodsList(goodsList.data);
@@ -173,7 +173,8 @@ class _RightCategoryNavState extends State<RightCategoryNav>{
   Widget _rightInkWell(int index, BxMallSubDto item){
     bool isClick = false;
     isClick = (index==Provide.value<ChildCategory>(context).childIndex)?true:false;
-
+    print('check status:');
+    print(Provide.value<ChildCategory>(context).childIndex);
     return InkWell(
       onTap: (){
         Provide.value<ChildCategory>(context).changeChildIndex(index);
