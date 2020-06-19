@@ -174,8 +174,8 @@ class _RightCategoryNavState extends State<RightCategoryNav>{
   Widget _rightInkWell(int index, BxMallSubDto item){
     bool isClick = false;
     isClick = (index==Provide.value<ChildCategory>(context).childIndex)?true:false;
-    print('check status:');
-    print(Provide.value<ChildCategory>(context).childIndex);
+    //print('check status:');
+    //print(Provide.value<ChildCategory>(context).childIndex);
     return InkWell(
       onTap: (){
         Provide.value<ChildCategory>(context).changeChildIndex(index, item.mallSubId);
@@ -223,6 +223,7 @@ class _CategoryGoodsListState extends State<CategoryGoodsList>{
 
   //List list = [];
   GlobalKey<RefreshFooterState> _footerKey = new GlobalKey<RefreshFooterState>();
+  var scrollController = new ScrollController();
 
   @override
   void initState(){
@@ -232,15 +233,15 @@ class _CategoryGoodsListState extends State<CategoryGoodsList>{
 
   @override
   Widget build(BuildContext context) {
-    try{
-      if(Provide.value<ChildCategory>(context).page==1)
-        ;
-    }catch(e){
-      print('init load...');
-    }
-
     return Provide<CategoryGoodsListProvide>(
       builder: (context, child, data){
+        try{
+          //print('===>'+Provide.value<ChildCategory>(context).page.toString());
+          if(Provide.value<ChildCategory>(context).page==1)
+            scrollController.jumpTo(0.0);
+        }catch(e){
+          print('init load...${e}');
+        }
         if(data.goodsList.length>0){
           return Expanded(
             child: Container(
@@ -258,6 +259,7 @@ class _CategoryGoodsListState extends State<CategoryGoodsList>{
                   loadReadyText: '上拉加载',
                 ),
                 child: ListView.builder(
+                  controller: scrollController,
                   itemCount: data.goodsList.length,
                   itemBuilder: (context, index){
                     return _ListWidget(data.goodsList, index);
