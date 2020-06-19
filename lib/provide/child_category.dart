@@ -4,6 +4,7 @@ import '../model/category.dart';
 class ChildCategory with ChangeNotifier{
   List<BxMallSubDto> childCategoryList = [];
 
+
   getChildCategory(List<BxMallSubDto> list){
     BxMallSubDto all = BxMallSubDto();
     all.mallSubId='00';

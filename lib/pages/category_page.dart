@@ -54,6 +54,7 @@ class _LeftCategoryNavState extends State<LeftCategoryNav>{
   @override
   void initState(){
     _getCategory();
+    _getGoodsList();
     super.initState();
   }
 
@@ -202,14 +203,16 @@ class _CategoryGoodsListState extends State<CategoryGoodsList>{
   Widget build(BuildContext context) {
     return Provide<CategoryGoodsListProvide>(
       builder: (context, child, data){
-        return Container(
-          width: ScreenUtil().setWidth(570),
-          height: ScreenUtil().setHeight(1000),
-          child: ListView.builder(
-            itemCount: data.goodsList.length,
-            itemBuilder: (context, index){
-              return _ListWidget(data.goodsList, index);
-            },
+        return Expanded(
+          child: Container(
+            width: ScreenUtil().setWidth(570),
+            //height: ScreenUtil().setHeight(1000),
+            child: ListView.builder(
+              itemCount: data.goodsList.length,
+              itemBuilder: (context, index){
+                return _ListWidget(data.goodsList, index);
+              },
+            ),
           ),
         );
       },
