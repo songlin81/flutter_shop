@@ -178,6 +178,7 @@ class _RightCategoryNavState extends State<RightCategoryNav>{
     return InkWell(
       onTap: (){
         Provide.value<ChildCategory>(context).changeChildIndex(index);
+        _getGoodsList(item.mallSubId);
       },
       child: Container(
         padding: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
@@ -190,6 +191,20 @@ class _RightCategoryNavState extends State<RightCategoryNav>{
         ),
       ),
     );
+  }
+
+  void _getGoodsList(String categorySubId){
+    var data = {
+      'CategoryId' : Provide.value<ChildCategory>(context).categoryId,
+      'CategorySubId' : categorySubId,
+      'page' : 1
+    };
+
+    request('getMallGoods', formData: data).then((val){
+      var data = json.decode(val.toString());
+      CategoryGoodsListModel goodsList = CategoryGoodsListModel.fromJson(data);
+      Provide.value<CategoryGoodsListProvide>(context).getGoodsList(goodsList.data);
+    });
   }
 }
 
