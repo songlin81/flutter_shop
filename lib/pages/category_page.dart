@@ -150,7 +150,7 @@ class _RightCategoryNavState extends State<RightCategoryNav>{
     return Provide<ChildCategory>(
       builder: (context, child, childCategory){
         return Container(
-          height: ScreenUtil().setHeight(70),
+          height: ScreenUtil().setHeight(80),
           width: ScreenUtil().setWidth(570),
           decoration: BoxDecoration(
               color: Colors.white,
@@ -203,7 +203,12 @@ class _RightCategoryNavState extends State<RightCategoryNav>{
     request('getMallGoods', formData: data).then((val){
       var data = json.decode(val.toString());
       CategoryGoodsListModel goodsList = CategoryGoodsListModel.fromJson(data);
-      Provide.value<CategoryGoodsListProvide>(context).getGoodsList(goodsList.data);
+
+      if(goodsList.data==null) {
+        Provide.value<CategoryGoodsListProvide>(context).getGoodsList([]);
+      }else{
+        Provide.value<CategoryGoodsListProvide>(context).getGoodsList(goodsList.data);
+      }
     });
   }
 }
@@ -227,18 +232,22 @@ class _CategoryGoodsListState extends State<CategoryGoodsList>{
   Widget build(BuildContext context) {
     return Provide<CategoryGoodsListProvide>(
       builder: (context, child, data){
-        return Expanded(
-          child: Container(
-            width: ScreenUtil().setWidth(570),
-            //height: ScreenUtil().setHeight(1000),
-            child: ListView.builder(
-              itemCount: data.goodsList.length,
-              itemBuilder: (context, index){
-                return _ListWidget(data.goodsList, index);
-              },
+        if(data.goodsList.length>0){
+          return Expanded(
+            child: Container(
+              width: ScreenUtil().setWidth(570),
+              //height: ScreenUtil().setHeight(1000),
+              child: ListView.builder(
+                itemCount: data.goodsList.length,
+                itemBuilder: (context, index){
+                  return _ListWidget(data.goodsList, index);
+                },
+              ),
             ),
-          ),
-        );
+          );
+        } else{
+          return Text('暂时无货');
+        }
       },
     );
   }
