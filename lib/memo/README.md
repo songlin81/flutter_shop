@@ -1100,6 +1100,23 @@
       "images": "http://images.baixingliangfan.cn/shopGoodsImg/20181229/20181229211422_8507.jpg"
     }
 
+    [
+      {
+        "goodsId": "4c7bf0743bd645f3be9e5bdac19d068c",
+        "goodsName": "百事可乐500ml/瓶",
+        "count": 4,
+        "price": 1.9,
+        "images": "http://47.104.244.246:5000/category/cola.jpg"
+      },
+      {
+        "goodsId": "ed675dda49e0445fa769f3d8020ab5e9",
+        "goodsName": "可口可乐500ml/瓶",
+        "count": 2,
+        "price": 2.7,
+        "images": "http://images.baixingliangfan.cn/shopGoodsImg/20190116/20190116162618_2924.jpg"
+      }
+    ]
+
 [13] To check:
     https://github.com/lozone123/flutter_alipay_wxchatpay
     https://www.raywenderlich.com/4333657-using-the-camera-on-flutter
