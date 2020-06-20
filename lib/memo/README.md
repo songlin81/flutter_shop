@@ -86,17 +86,17 @@
     formData = {'page':1}
     {
         "data": [
-          {"name": "CC1", "image": "http://47.104.244.246:5000/category/myspace.png", "mallPrice":"10", "Price":"100"},
-          {"name": "CC2", "image": "http://47.104.244.246:5000/category/linkedin.png", "mallPrice":"20", "Price":"200"},
-          {"name": "CC3", "image": "http://47.104.244.246:5000/category/dribble.png", "mallPrice":"30", "Price":"300"},
-          {"name": "CC4", "image": "http://47.104.244.246:5000/category/instagram.png", "mallPrice":"40", "Price":"400"},
-          {"name": "CC5", "image": "http://47.104.244.246:5000/category/google-plus.png", "mallPrice":"50", "Price":"500"},
-          {"name": "CC6", "image": "http://47.104.244.246:5000/category/facebook.png", "mallPrice":"60", "Price":"600"},
-          {"name": "CC7", "image": "http://47.104.244.246:5000/category/twitter.png", "mallPrice":"70", "Price":"700"},
-          {"name": "CC8", "image": "http://47.104.244.246:5000/category/task.png", "mallPrice":"80", "Price":"800"},
-          {"name": "CC9", "image": "http://47.104.244.246:5000/category/reddit.png", "mallPrice":"90", "Price":"900"},
-          {"name": "CC10", "image": "http://47.104.244.246:5000/category/instagram-new.png", "mallPrice":"30", "Price":"300"},
-          {"name": "CC11", "image": "http://47.104.244.246:5000/category/file.png", "mallPrice":"40", "Price":"400"}
+          {"name": "CC1", "image": "http://47.104.244.246:5000/category/myspace.png", "mallPrice":"10", "Price":"100", "goodsId":"3d1d5fac496a49ffb42b66c9a13dda51"},
+          {"name": "CC2", "image": "http://47.104.244.246:5000/category/linkedin.png", "mallPrice":"20", "Price":"200", "goodsId":"4c7bf0743bd645f3be9e5bdac19d068c"},
+          {"name": "CC3", "image": "http://47.104.244.246:5000/category/dribble.png", "mallPrice":"30", "Price":"300", "goodsId":"d73e1f57da3f44d1b0c29e76211d1919"},
+          {"name": "CC4", "image": "http://47.104.244.246:5000/category/instagram.png", "mallPrice":"40", "Price":"400", "goodsId":"58860a5c19f54477af7a5f4a3d86b43c"},
+          {"name": "CC5", "image": "http://47.104.244.246:5000/category/google-plus.png", "mallPrice":"50", "Price":"500", "goodsId":"636670371376446c9e2e4425ef10492a"},
+          {"name": "CC6", "image": "http://47.104.244.246:5000/category/facebook.png", "mallPrice":"60", "Price":"600", "goodsId":"8d2dd063c53244e28247babe1edbe10c"},
+          {"name": "CC7", "image": "http://47.104.244.246:5000/category/twitter.png", "mallPrice":"70", "Price":"700", "goodsId":"5db8a30e3ede44fbbfe87c7918d0ca95"},
+          {"name": "CC8", "image": "http://47.104.244.246:5000/category/task.png", "mallPrice":"80", "Price":"800", "goodsId":"945b37875ccc474d9c307fdd86c956bd"},
+          {"name": "CC9", "image": "http://47.104.244.246:5000/category/reddit.png", "mallPrice":"90", "Price":"900", "goodsId":"9f1bde335e044e38ab2e491773e1bd6c"},
+          {"name": "CC10", "image": "http://47.104.244.246:5000/category/instagram-new.png", "mallPrice":"30", "Price":"300", "goodsId":"bd067eb180a54360bb3d611c03e1d431"},
+          {"name": "CC11", "image": "http://47.104.244.246:5000/category/file.png", "mallPrice":"40", "Price":"400", "goodsId":"24fc82fa70e345229def9297d657d4f1"}
         ]
     }
 
@@ -1053,7 +1053,9 @@
       "message": "success",
       "data": []
     }
-[12] 37
+[12] 40
 
 {"code":"0","message":"success","data":{"goodInfo":{"image5":"","amount":10000,"image3":"","image4":"","goodsId":"ed675dda49e0445fa769f3d8020ab5e9","isOnline":"yes","image1":"http://images.baixingliangfan.cn/shopGoodsImg/20190116/20190116162618_2924.jpg","image2":"","goodsSerialNumber":"6928804011173","oriPrice":3.00,"presentPrice":2.70,"comPic":"http://images.baixingliangfan.cn/compressedPic/20190116162618_2924.jpg","state":1,"shopId":"402880e860166f3c0160167897d60002","goodsName":"可口可乐500ml/瓶","goodsDetail":"<img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081109_5060.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081109_1063.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081110_8029.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081110_1074.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081110_8439.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081110_6800.jpg\" width=\"100%\" height=\"auto\" alt=\"\" />"},"goodComments":[{"SCORE":5,"comments":"果断卸载，2.5个小时才送到","userName":"157******27","discussTime":1539491266336}],"advertesPicture":{"PICTURE_ADDRESS":"http://images.baixingliangfan.cn/advertesPicture/20190113/20190113134955_5825.jpg","TO_PLACE":"1"}}}
 {"goodsId":"2171c20d77c340729d5d7ebc2039c08d","goodsName":"五粮液52°500ml","count":1,"price":830.0,"images":"http://images.baixingliangfan.cn/shopGoodsImg/20181229/20181229211422_8507.jpg"}
+
+[13] To check: https://github.com/lozone123/flutter_alipay_wxchatpay

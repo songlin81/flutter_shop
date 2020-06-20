@@ -4,6 +4,9 @@ import 'package:provide/provide.dart';
 import './provide/counter.dart';
 import './provide/child_category.dart';
 import './provide/category_goods_list.dart';
+import 'package:fluro/fluro.dart';
+import './routers/routers.dart';
+import './routers/application.dart';
 
 void main() {
   var counter = Counter();
@@ -21,8 +24,13 @@ void main() {
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    final router = Router();
+    Routes.configurateRoutes(router);
+    Application.router = router;
+
     return Container(
       child: MaterialApp(
+        onGenerateRoute: Application.router.generator,
         title: '松松商城',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

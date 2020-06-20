@@ -6,6 +6,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'dart:convert';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../routers/application.dart';
 
 class HomePage extends StatefulWidget{
   _HomePageState createState() => _HomePageState();
@@ -141,7 +142,9 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     if(hotGoodsList.length!=0){
       List<Widget> listWidget = hotGoodsList.map((val){
         return InkWell(
-          onTap: (){},
+          onTap: (){
+            Application.router.navigateTo(context, "/detail?id=${val['goodsId']}");
+          },
           child: Container(
             width: ScreenUtil().setWidth(372),
             color: Colors.white,
