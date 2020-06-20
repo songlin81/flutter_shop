@@ -86,7 +86,7 @@
     formData = {'page':1}
     {
         "data": [
-          {"name": "CC1", "image": "http://47.104.244.246:5000/category/myspace.png", "mallPrice":"10", "Price":"100", "goodsId":"3d1d5fac496a49ffb42b66c9a13dda51"},
+          {"name": "CC1", "image": "http://47.104.244.246:5000/category/myspace.png", "mallPrice":"10", "Price":"100", "goodsId":"ed675dda49e0445fa769f3d8020ab5e9"},
           {"name": "CC2", "image": "http://47.104.244.246:5000/category/linkedin.png", "mallPrice":"20", "Price":"200", "goodsId":"4c7bf0743bd645f3be9e5bdac19d068c"},
           {"name": "CC3", "image": "http://47.104.244.246:5000/category/dribble.png", "mallPrice":"30", "Price":"300", "goodsId":"d73e1f57da3f44d1b0c29e76211d1919"},
           {"name": "CC4", "image": "http://47.104.244.246:5000/category/instagram.png", "mallPrice":"40", "Price":"400", "goodsId":"58860a5c19f54477af7a5f4a3d86b43c"},

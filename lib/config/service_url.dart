@@ -4,5 +4,6 @@ const servicePath = {
   'homePageContent': serviceUrl+'homePageContent',
   'homePageBelowContent': serviceUrl+'homePageBelowContent',
   'getCategory': serviceUrl+'getCategory',
-  'getMallGoods': serviceUrl+'getMallGoods'
+  'getMallGoods': serviceUrl+'getMallGoods',
+  'getGoodsDetailById': serviceUrl+'getGoodsDetailById'
 };
