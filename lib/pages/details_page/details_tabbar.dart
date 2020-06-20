@@ -12,17 +12,22 @@ class DetailsTabBar extends StatelessWidget {
         var isRight =Provide.value<DetailsInfoProvide>(context).isRight;
         return Container(
           margin: EdgeInsets.only(top: 15.0),
-          child: Column(
+          child: Row(
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  _myTabBarLeft(context,isLeft),
-                  _myTabBarRight(context,isRight)
-                ],
-              ),
+              _myTabBarLeft(context,isLeft),
+              _myTabBarRight(context,isRight)
             ],
           ),
-
+//          child: Column(
+//            children: <Widget>[
+//              Row(
+//                children: <Widget>[
+//                  _myTabBarLeft(context,isLeft),
+//                  _myTabBarRight(context,isRight)
+//                ],
+//              ),
+//            ],
+//          ),
         ) ;
       },
     );

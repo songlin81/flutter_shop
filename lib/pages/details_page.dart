@@ -28,7 +28,7 @@ class DetailsPage extends StatelessWidget{
         builder: (context, snapshot){
           if(snapshot.hasData){
             return Container(
-              child: Column(
+              child: ListView(
                 children: <Widget>[
                   //Text('...${goodsId}'),
                   DetailsTopArea(),
