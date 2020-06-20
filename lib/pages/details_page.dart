@@ -32,7 +32,6 @@ class DetailsPage extends StatelessWidget{
             return Stack(
               children: <Widget>[
                 Container(
-                  
                   child: ListView(
                     children: <Widget>[
                       //Text('...${goodsId}'),
