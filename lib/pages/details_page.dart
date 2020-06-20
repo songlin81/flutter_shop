@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershop/pages/details_page/details_tabbar.dart';
 import '../provide/details_info.dart';
 import 'package:provide/provide.dart';
 import './details_page/details_top_area.dart';
+import 'details_page/details_explain.dart';
 
 class DetailsPage extends StatelessWidget{
 
@@ -30,6 +32,8 @@ class DetailsPage extends StatelessWidget{
                 children: <Widget>[
                   //Text('...${goodsId}'),
                   DetailsTopArea(),
+                  DetailsExplain(),
+                  DetailsTabBar(),
                 ],
               ),
             );
