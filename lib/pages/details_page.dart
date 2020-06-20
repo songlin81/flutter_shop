@@ -14,7 +14,6 @@ class DetailsPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    _getBackInfo(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
