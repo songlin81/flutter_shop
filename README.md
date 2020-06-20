@@ -12,4 +12,4 @@
 	
 </p>
 
-[Link to live demo](slide.gif)
+[Link to live demo](slides.gif)
