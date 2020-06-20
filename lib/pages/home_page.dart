@@ -206,11 +206,12 @@ class SwiperDiy extends StatelessWidget{
       width: ScreenUtil().setWidth(750),
       child: Swiper(
         itemBuilder: (BuildContext context, int index){
-          return Image.network(
-            "${swiperDataList[index]['image']}",
-            width: 320,
-            height: 180,
-            fit: BoxFit.fill,);
+          return InkWell(
+            onTap: (){
+              Application.router.navigateTo(context, "/detail?id=${swiperDataList[index]['goodsId']}");
+            },
+            child: Image.network("${swiperDataList[index]['image']}", width: 320, height: 180, fit: BoxFit.fill,),
+          );
         },
         itemCount: swiperDataList.length,
         pagination: SwiperPagination(),
@@ -317,9 +318,11 @@ class Recommend extends StatelessWidget{
     );
   }
 
-  Widget _item(index){
+  Widget _item(context, index){
     return InkWell(
-      onTap: (){},
+      onTap: (){
+        Application.router.navigateTo(context, "/detail?id=${recommendList[index]['goodsId']}");
+      },
       child: Container(
         height: ScreenUtil().setHeight(330),
         width: ScreenUtil().setWidth(250),  // =750/3
@@ -354,7 +357,7 @@ class Recommend extends StatelessWidget{
         scrollDirection: Axis.horizontal,
         itemCount: recommendList.length,
         itemBuilder: (context, index){
-          return _item(index);
+          return _item(context, index);
         },
       ),
     );

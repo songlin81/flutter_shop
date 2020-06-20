@@ -25,11 +25,11 @@
     {
       "data": {
         "slides": [
-          {"image": "http://47.104.244.246:5000/banners/banner1.jpg"},
-          {"image": "http://47.104.244.246:5000/banners/banner2.jpg"},
-          {"image": "http://47.104.244.246:5000/banners/banner3.jpg"},
-          {"image": "http://47.104.244.246:5000/banners/banner4.jpg"},
-          {"image": "http://47.104.244.246:5000/banners/banner5.jpg"}
+          {"image": "http://47.104.244.246:5000/banners/banner1.jpg", "goodsId":"9f1bde335e044e38ab2e491773e1bd6c"},
+          {"image": "http://47.104.244.246:5000/banners/banner2.jpg", "goodsId":"9f1bde335e044e38ab2e491773e1bd7c"},
+          {"image": "http://47.104.244.246:5000/banners/banner3.jpg", "goodsId":"9f1bde335e044e38ab2e491773e1bd8c"},
+          {"image": "http://47.104.244.246:5000/banners/banner4.jpg", "goodsId":"9f1bde335e044e38ab2e491773e1bd9c"},
+          {"image": "http://47.104.244.246:5000/banners/banner5.jpg", "goodsId":"9f1bde335e044e38ab2e491773e1bd0c"}
         ],
         "category": [
           {"mallCategoryName": "PC1", "image": "http://47.104.244.246:5000/category/myspace.png"},
@@ -47,11 +47,11 @@
         "adPicture": {"Picture_Address": "http://47.104.244.246:5000/adbanners/adbanner1.jpg"},
         "shopInfo": {"contactImage": "http://47.104.244.246:5000/shopinfo/contact.jpg", "contactPhoneNumber": "10010"},
         "recommend": [
-            {"mallPrice":"10", "Price":"100", "image": "http://47.104.244.246:5000/products/engine1.jpg"},
-            {"mallPrice":"20", "Price":"200", "image": "http://47.104.244.246:5000/products/engine2.jpg"},
-            {"mallPrice":"30", "Price":"300", "image": "http://47.104.244.246:5000/products/engine3.jpg"},
-            {"mallPrice":"40", "Price":"400", "image": "http://47.104.244.246:5000/products/engine4.jpg"},
-            {"mallPrice":"50", "Price":"500", "image": "http://47.104.244.246:5000/products/engine5.jpg"}
+            {"mallPrice":"10", "Price":"100", "image": "http://47.104.244.246:5000/products/engine1.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bd2c"},
+            {"mallPrice":"20", "Price":"200", "image": "http://47.104.244.246:5000/products/engine2.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bd3c"},
+            {"mallPrice":"30", "Price":"300", "image": "http://47.104.244.246:5000/products/engine3.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bd4c"},
+            {"mallPrice":"40", "Price":"400", "image": "http://47.104.244.246:5000/products/engine4.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bd5c"},
+            {"mallPrice":"50", "Price":"500", "image": "http://47.104.244.246:5000/products/engine5.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bd6c"}
         ],
         "floor1Pic": {"Picture_Address" : "http://47.104.244.246:5000/floor/floorbanner.jpg"},
         "floor1": [
@@ -1053,9 +1053,10 @@
       "message": "success",
       "data": []
     }
-[12] 40
 
-{"code":"0","message":"success","data":{"goodInfo":{"image5":"","amount":10000,"image3":"","image4":"","goodsId":"ed675dda49e0445fa769f3d8020ab5e9","isOnline":"yes","image1":"http://images.baixingliangfan.cn/shopGoodsImg/20190116/20190116162618_2924.jpg","image2":"","goodsSerialNumber":"6928804011173","oriPrice":3.00,"presentPrice":2.70,"comPic":"http://images.baixingliangfan.cn/compressedPic/20190116162618_2924.jpg","state":1,"shopId":"402880e860166f3c0160167897d60002","goodsName":"可口可乐500ml/瓶","goodsDetail":"<img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081109_5060.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081109_1063.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081110_8029.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081110_1074.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081110_8439.jpg\" width=\"100%\" height=\"auto\" alt=\"\" /><img src=\"http://images.baixingliangfan.cn/shopGoodsDetailImg/20171224/20171224081110_6800.jpg\" width=\"100%\" height=\"auto\" alt=\"\" />"},"goodComments":[{"SCORE":5,"comments":"果断卸载，2.5个小时才送到","userName":"157******27","discussTime":1539491266336}],"advertesPicture":{"PICTURE_ADDRESS":"http://images.baixingliangfan.cn/advertesPicture/20190113/20190113134955_5825.jpg","TO_PLACE":"1"}}}
-{"goodsId":"2171c20d77c340729d5d7ebc2039c08d","goodsName":"五粮液52°500ml","count":1,"price":830.0,"images":"http://images.baixingliangfan.cn/shopGoodsImg/20181229/20181229211422_8507.jpg"}
+[12] 42
+    {"goodsId":"2171c20d77c340729d5d7ebc2039c08d","goodsName":"五粮液52°500ml","count":1,"price":830.0,"images":"http://images.baixingliangfan.cn/shopGoodsImg/20181229/20181229211422_8507.jpg"}
 
-[13] To check: https://github.com/lozone123/flutter_alipay_wxchatpay
+[13] To check:
+    https://github.com/lozone123/flutter_alipay_wxchatpay
+    https://www.raywenderlich.com/4333657-using-the-camera-on-flutter

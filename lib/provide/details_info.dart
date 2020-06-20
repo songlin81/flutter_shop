@@ -10,7 +10,7 @@ class DetailsInfoProvide with ChangeNotifier{
     var formData = {'goodsId' : id};
     request('getGoodsDetailById', formData: formData).then((value){
       var responseData = json.decode(value.toString());
-      print(responseData);
+      //print(responseData);
       goodsInfo = DetailsModel.fromJson(responseData);
       notifyListeners();
     });
