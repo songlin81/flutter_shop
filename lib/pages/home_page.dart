@@ -399,42 +399,44 @@ class FloorContent extends StatelessWidget{
 
       child: Column(
         children: <Widget>[
-          _firstRow(),
-          _otherGoods()
+          _firstRow(context),
+          _otherGoods(context)
         ],
       ),
     );
   }
 
-  Widget _firstRow(){
+  Widget _firstRow(BuildContext context){
     return Row(
       children: <Widget>[
-        _goodsItem(floorGoodsList[0]),
+        _goodsItem(context, floorGoodsList[0]),
         Column(
           children: <Widget>[
-            _goodsItem(floorGoodsList[1]),
-            _goodsItem(floorGoodsList[2]),
+            _goodsItem(context, floorGoodsList[1]),
+            _goodsItem(context, floorGoodsList[2]),
           ],
         )
       ],
     );
   }
 
-  Widget _otherGoods(){
+  Widget _otherGoods(BuildContext context){
     return Row(
       children: <Widget>[
-        _goodsItem(floorGoodsList[3]),
-        _goodsItem(floorGoodsList[4]),
+        _goodsItem(context, floorGoodsList[3]),
+        _goodsItem(context, floorGoodsList[4]),
       ],
     );
   }
 
-  Widget _goodsItem(Map goods){
+  Widget _goodsItem(BuildContext context, Map goods){
     return Container(
       width: ScreenUtil().setWidth(750/2),
       height: ScreenUtil().setHeight(140),
       child: InkWell(
-        onTap: (){print('点击了商品');},
+        onTap: (){
+          Application.router.navigateTo(context, "/detail?id=${goods['goodsId']}");
+        },
         child: Image.network(goods['image'],  fit: BoxFit.fitHeight),
       ),
     );

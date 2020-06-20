@@ -55,27 +55,27 @@
         ],
         "floor1Pic": {"Picture_Address" : "http://47.104.244.246:5000/floor/floorbanner.jpg"},
         "floor1": [
-            {"image": "http://47.104.244.246:5000/floor/gear1.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/gear2.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/gear3.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/gear4.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/gear5.jpg"}
+            {"image": "http://47.104.244.246:5000/floor/gear1.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2be1c"},
+            {"image": "http://47.104.244.246:5000/floor/gear2.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2be2c"},
+            {"image": "http://47.104.244.246:5000/floor/gear3.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2be3c"},
+            {"image": "http://47.104.244.246:5000/floor/gear4.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2be4c"},
+            {"image": "http://47.104.244.246:5000/floor/gear5.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2be5c"}
         ],
         "floor2Pic": {"Picture_Address" : "http://47.104.244.246:5000/floor/tirebanner.jpg"},
         "floor2": [
-            {"image": "http://47.104.244.246:5000/floor/tire1.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/tire2.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/tire3.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/tire4.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/tire5.jpg"}
+            {"image": "http://47.104.244.246:5000/floor/tire1.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bf1c"},
+            {"image": "http://47.104.244.246:5000/floor/tire2.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bf2c"},
+            {"image": "http://47.104.244.246:5000/floor/tire3.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bf3c"},
+            {"image": "http://47.104.244.246:5000/floor/tire4.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bf4c"},
+            {"image": "http://47.104.244.246:5000/floor/tire5.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bf5c"}
         ],
         "floor3Pic": {"Picture_Address" : "http://47.104.244.246:5000/floor/suspensionbanner.jpg"},
         "floor3": [
-            {"image": "http://47.104.244.246:5000/floor/suspension1.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/suspension2.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/suspension3.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/suspension4.jpg"},
-            {"image": "http://47.104.244.246:5000/floor/suspension5.jpg"}
+            {"image": "http://47.104.244.246:5000/floor/suspension1.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bg1c"},
+            {"image": "http://47.104.244.246:5000/floor/suspension2.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bg2c"},
+            {"image": "http://47.104.244.246:5000/floor/suspension3.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bg3c"},
+            {"image": "http://47.104.244.246:5000/floor/suspension4.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bg4c"},
+            {"image": "http://47.104.244.246:5000/floor/suspension5.jpg", "goodsId":"9f1bde335e044e38ab2e491773e2bg5c"}
         ]
       }
     }
