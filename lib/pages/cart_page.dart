@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provide/provide.dart';
 import '../provide/cart.dart';
+import './cart_page/cart_item.dart';
+import './cart_page/cart_bottom.dart';
 
 class CartPage extends StatelessWidget{
 
@@ -24,10 +26,10 @@ class CartPage extends StatelessWidget{
                         return ListView.builder(
                           itemCount: cartList.length,
                           itemBuilder: (context, index) {
-                            return ListTile(
-                              title: Text(
-                                  cartList[index].goodsName),
-                              );
+                            return CartItem(cartList[index]);
+//                            return ListTile(
+//                              title: Text(cartList[index].goodsName),
+//                            );
                           },
                         );
                       }else{
@@ -40,7 +42,7 @@ class CartPage extends StatelessWidget{
                 Positioned(
                   bottom:0,
                   left:0,
-                  child: Text('future build...'),
+                  child: CartBottom(),
                 )
               ],
             );
