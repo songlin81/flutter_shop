@@ -1091,7 +1091,7 @@
       }
     }
 
-[12] 52
+[12]
     {
       "goodsId": "2171c20d77c340729d5d7ebc2039c08d",
       "goodsName": "五粮液52°500ml",
@@ -1117,6 +1117,6 @@
       }
     ]
 
-[13] To check:
+[13] To check: 54
     https://github.com/lozone123/flutter_alipay_wxchatpay
     https://www.raywenderlich.com/4333657-using-the-camera-on-flutter
