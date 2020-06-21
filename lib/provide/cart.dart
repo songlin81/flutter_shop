@@ -7,6 +7,8 @@ class CartProvide with ChangeNotifier {
 
   String cartString="[]";
   List<CartInfoModel> cartList = [];
+  double allPrice = 0;
+  int allGoodsCount = 0;
 
   save(goodsId, goodsName, count, price, images) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -17,11 +19,17 @@ class CartProvide with ChangeNotifier {
 
     var isHave= false;
     int ival=0;
+    allPrice=0;
+    allGoodsCount=0;
     tempList.forEach((item) {
       if(item['goodsId']==goodsId){
         tempList[ival]['count']=item['count']+1;
         cartList[ival].count++;
         isHave=true;
+      }
+      if(item['isCheck']){
+        allPrice+= (cartList[ival].price* cartList[ival].count);
+        allGoodsCount+= cartList[ival].count;
       }
       ival++;
     });
@@ -37,6 +45,8 @@ class CartProvide with ChangeNotifier {
       };
       tempList.add(newGoods);
       cartList.add(new CartInfoModel.fromJson(newGoods));
+      allPrice+= (count * price);
+      allGoodsCount+=count;
     }
 
     cartString= json.encode(tempList).toString();
@@ -48,6 +58,8 @@ class CartProvide with ChangeNotifier {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove('cartInfo');
     cartList=[];
+    allPrice =0 ;
+    allGoodsCount=0;
     print('All clear!');
     notifyListeners();
   }
@@ -61,8 +73,14 @@ class CartProvide with ChangeNotifier {
       cartList=[];
     }else{
       List<Map> tempList = (json.decode(cartString.toString()) as List).cast();
+      allPrice = 0;
+      allGoodsCount = 0;
       tempList.forEach((item) {
         cartList.add(new CartInfoModel.fromJson(item));
+        if(item['isCheck']){
+          allPrice += (item['count']*item['price']);
+          allGoodsCount += item['count'];
+        }
       });
     }
 
