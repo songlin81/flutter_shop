@@ -89,7 +89,7 @@ class CartBottom extends StatelessWidget{
   Widget _goButton(context) {
     int allGoodsCount = Provide.value<CartProvide>(context).allGoodsCount;
     return Container(
-      width: ScreenUtil().setWidth(160),
+      width: ScreenUtil().setWidth(140),
       padding: EdgeInsets.only(left: 10),
       child: InkWell(
         onTap: (){ },
