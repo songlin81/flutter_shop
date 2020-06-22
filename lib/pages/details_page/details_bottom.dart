@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provide/provide.dart';
 import '../../provide/cart.dart';
 import '../../provide/details_info.dart';
@@ -35,6 +36,14 @@ class DetailsBottom extends StatelessWidget {
           InkWell(
             onTap: () async{
               await Provide.value<CartProvide>(context).save(goodsId, goodsName, count, price, images);
+              Fluttertoast.showToast(
+                  msg: "商品已加入购物车",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER,
+                  backgroundColor: Colors.black26,
+                  textColor: Colors.white,
+                  fontSize: 16.0
+              );
             },
             child: Container(
               alignment: Alignment.center,
