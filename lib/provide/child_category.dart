@@ -8,16 +8,26 @@ class ChildCategory with ChangeNotifier{
   String subId='';
   int page = 1;
   String noMoreText='';
+  bool isNewCategory= true;
+  int categoryIndex=0;
+
+  changeCategory(String id, int index){
+    categoryId=id;
+    categoryIndex=index;
+    subId ='';
+    notifyListeners();
+  }
 
   getChildCategory(List<BxMallSubDto> list, String id){
-
     page = 1;
     noMoreText='';
     childIndex = 0;
     categoryId = id;
+    isNewCategory=true;
+    subId='';
 
     BxMallSubDto all = BxMallSubDto();
-    all.mallSubId='00';
+    all.mallSubId='';
     all.mallCategoryId='00';
     all.mallSubName='全部';
     all.comments="";
@@ -31,6 +41,7 @@ class ChildCategory with ChangeNotifier{
   changeChildIndex(index, String id){
     page = 1;
     noMoreText='';
+    isNewCategory=true;
 
     childIndex = index;
     subId = id;
@@ -44,5 +55,9 @@ class ChildCategory with ChangeNotifier{
   changeNoMore(String text){
     noMoreText = text;
     notifyListeners();
+  }
+
+  changeFalse(){
+    isNewCategory=false;
   }
 }
