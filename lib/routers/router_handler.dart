@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import '../pages/details_page.dart';
+import '../pages/jg_page.dart';
 
 Handler detailsHandler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params){
@@ -9,3 +10,10 @@ Handler detailsHandler = Handler(
     return DetailsPage(goodsId);
   }
 );
+
+Handler jgHandler = Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params){
+      return jgPage();
+    }
+);
+

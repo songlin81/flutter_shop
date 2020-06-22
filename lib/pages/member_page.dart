@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../routers/application.dart';
 
 class MemberPage extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class MemberPage extends StatelessWidget {
         children: <Widget>[
           _topHeader(),
           _orderTitle(),
-          _orderType(),
+          _orderType(context),
           _actionList()
         ],
       ),
@@ -65,7 +66,7 @@ class MemberPage extends StatelessWidget {
     );
   }
 
-  Widget _orderType(){
+  Widget _orderType(context){
     return Container(
       margin: EdgeInsets.only(top: 5),
       width: ScreenUtil().setWidth(750),
@@ -76,12 +77,15 @@ class MemberPage extends StatelessWidget {
         children: <Widget>[
           Container(
             width: ScreenUtil().setWidth(187),
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.party_mode, size: 30),
-                Text('待付款')
-              ],
-            ),
+            child: InkWell(
+              onTap: (){Application.router.navigateTo(context, "/jg");},
+              child: Column(
+                children: <Widget>[
+                  Icon(Icons.party_mode, size: 30),
+                  Text('待付款')
+                ],
+              ),
+            )
           ),
           Container(
             width: ScreenUtil().setWidth(187),

@@ -1117,6 +1117,19 @@
       }
     ]
 
-[13] To check:
+[13] AMap:
+    Key: FlutterPOC
+    Open fluttershop_android.iml inside android directory,
+    and then choose 'Open for Editing in Android Studio' to open Android Studio in a new window.
+    Navigate to android->app->Task->android->signingReport: to get SHA1 code
+        C6:26:BF:A2:9E:7A:19:04:9F:46:46:00:67:F2:27:97:59:FC:E1:8D
+
+    Back to Flutter project, navigate to android->app->build.gradle:
+        applicationId "net.fluttershop" --> this is the PackageName
+
+==> to get key: "9455039628b39dae1871853e2b6fb253"
+
+
+[14] To check:
     https://github.com/lozone123/flutter_alipay_wxchatpay
     https://www.raywenderlich.com/4333657-using-the-camera-on-flutter

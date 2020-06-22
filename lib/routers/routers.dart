@@ -6,6 +6,7 @@ import './router_handler.dart';
 class Routes {
   static String root = '/';
   static String detailsPage = '/detail';
+  static String jgPage = '/jg';
 
   static void configurateRoutes(Router router){
     router.notFoundHandler = new Handler(
@@ -15,5 +16,6 @@ class Routes {
     );
 
     router.define(detailsPage, handler: detailsHandler);
+    router.define(jgPage, handler: jgHandler);
   }
 }
