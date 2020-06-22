@@ -49,6 +49,9 @@ class CartProvide with ChangeNotifier {
       allGoodsCount+=count;
     }
 
+    allPrice = double.parse(allPrice.toStringAsFixed(2));
+    print('===> ${allPrice.toStringAsFixed(2)}');
+
     cartString= json.encode(tempList).toString();
     prefs.setString('cartInfo', cartString);
     notifyListeners();
@@ -84,6 +87,7 @@ class CartProvide with ChangeNotifier {
       });
     }
 
+    allPrice = double.parse(allPrice.toStringAsFixed(2));
     notifyListeners();
   }
 
