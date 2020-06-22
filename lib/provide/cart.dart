@@ -111,4 +111,24 @@ class CartProvide with ChangeNotifier {
 
     await getCartInfo();
   }
+
+  changeCheckStatus(CartInfoModel cartItem) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    cartString = prefs.getString('cartInfo');
+    List<Map> tempList= (json.decode(cartString.toString()) as List).cast();
+
+    int tempIndex = 0;
+    int changeIndex = 0;
+    tempList.forEach((item) {
+      if(item['goodsId']==cartItem.goodsId){
+        changeIndex = tempIndex;
+      }
+      tempIndex++;
+    });
+
+    tempList[changeIndex]=cartItem.toJson();
+    cartString=json.encode(tempList).toString();
+    prefs.setString('cartInfo', cartString);
+    await getCartInfo();
+  }
 }
