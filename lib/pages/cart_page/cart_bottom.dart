@@ -25,13 +25,16 @@ class CartBottom extends StatelessWidget{
   }
 
   Widget _selectAllBtn(context){
+    bool isAllCheck = Provide.value<CartProvide>(context).isAllCheck;
     return Container(
       child: Row(
         children: <Widget>[
           Checkbox(
-            value: true,
+            value: isAllCheck,
             activeColor: Colors.pink,
-            onChanged: (bool val){ },
+            onChanged: (bool val){
+              Provide.value<CartProvide>(context).changeAllCheckBtnState(val);
+            },
           ),
           Text('全选')
         ],
@@ -42,14 +45,14 @@ class CartBottom extends StatelessWidget{
   Widget _allPriceArea(context) {
     double allPrice = Provide.value<CartProvide>(context).allPrice;
     return Container(
-      width: ScreenUtil().setWidth(430),
+      width: ScreenUtil().setWidth(400),
       child: Column(
         children: <Widget>[
           Row(
             children: <Widget>[
               Container(
                 alignment: Alignment.centerRight,
-                width: ScreenUtil().setWidth(280),
+                width: ScreenUtil().setWidth(250),
                 child: Text(
                   "合计:",
                   style: TextStyle(
@@ -71,7 +74,7 @@ class CartBottom extends StatelessWidget{
             ],
           ),
           Container(
-            width: ScreenUtil().setWidth(430),
+            width: ScreenUtil().setWidth(400),
             alignment: Alignment.centerRight,
             child: Text(
               "满十元免配送费",
@@ -89,7 +92,7 @@ class CartBottom extends StatelessWidget{
   Widget _goButton(context) {
     int allGoodsCount = Provide.value<CartProvide>(context).allGoodsCount;
     return Container(
-      width: ScreenUtil().setWidth(140),
+      width: ScreenUtil().setWidth(175),
       padding: EdgeInsets.only(left: 10),
       child: InkWell(
         onTap: (){ },
