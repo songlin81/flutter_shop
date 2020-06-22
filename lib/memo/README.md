@@ -1117,6 +1117,6 @@
       }
     ]
 
-[13] To check: 62
+[13] To check:
     https://github.com/lozone123/flutter_alipay_wxchatpay
     https://www.raywenderlich.com/4333657-using-the-camera-on-flutter
