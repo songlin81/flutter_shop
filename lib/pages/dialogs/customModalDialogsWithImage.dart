@@ -6,6 +6,9 @@ class CustomModalDialogsWithImage {
 
   void showCustomDialogWithImage(BuildContext context, String message) {
     Dialog dialogWithImage = Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
       child: Container(
         height: 320.0,
         width: 400.0,
@@ -14,7 +17,13 @@ class CustomModalDialogsWithImage {
             Container(
               padding: EdgeInsets.all(12),
               alignment: Alignment.center,
-              decoration: BoxDecoration(color: Colors.pink),
+              decoration: BoxDecoration(
+                color: Colors.pink,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
+                ),
+              ),
               child: Text(
                 message,
                 style: TextStyle(
@@ -41,13 +50,16 @@ class CustomModalDialogsWithImage {
                   width: ScreenUtil().setWidth(200),
                   child: RaisedButton(
                     color: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
                     onPressed: () {
                       Navigator.of(context).pop();
                       Application.router.navigateTo(context, "/jg");
                     },
                     child: Text(
                       'Okay',
-                      style: TextStyle(fontSize: 10.0, color: Colors.white),
+                      style: TextStyle(fontSize: 15.0, color: Colors.white),
                     ),
                   ),
                 ),
@@ -58,12 +70,15 @@ class CustomModalDialogsWithImage {
                   width: ScreenUtil().setWidth(200),
                   child: RaisedButton(
                     color: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
                     child: Text(
                       'Cancel',
-                      style: TextStyle(fontSize: 10.0, color: Colors.white),
+                      style: TextStyle(fontSize: 15.0, color: Colors.white),
                     ),
                   )
                 )

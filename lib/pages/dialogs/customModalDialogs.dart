@@ -32,13 +32,16 @@ class CustomModalDialogs {
                       width: ScreenUtil().setWidth(200),
                       child: RaisedButton(
                         color: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
                         onPressed: () {
                           Navigator.of(context).pop();
                           Application.router.navigateTo(context, "/jg");
                         },
                         child: Text(
                           'Okay',
-                          style: TextStyle(fontSize: 10.0, color: Colors.white),
+                          style: TextStyle(fontSize: 15.0, color: Colors.white),
                         ),
                       ),
                     ),
@@ -49,12 +52,15 @@ class CustomModalDialogs {
                       width: ScreenUtil().setWidth(200),
                       child: RaisedButton(
                         color: Colors.red,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
                         onPressed: () {
                         Navigator.of(context).pop();
                         },
                         child: Text(
-                        'Cancel!',
-                        style: TextStyle(fontSize: 10.0, color: Colors.white),
+                        'Cancel',
+                        style: TextStyle(fontSize: 15.0, color: Colors.white),
                         ),
                       ),
                     )

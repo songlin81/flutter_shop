@@ -13,7 +13,9 @@
 	<img src="https://github.com/songlin81/flutter_shop/blob/master/lib/memo/8.jpg" alt="Img 8" width="200"/>
 </p>
 <p float="left";>
-	
+	<img src="https://github.com/songlin81/flutter_shop/blob/master/lib/memo/9.jpg" alt="Img 9" width="200"/>
+	<img src="https://github.com/songlin81/flutter_shop/blob/master/lib/memo/10.jpg" alt="Img 10" width="200"/>
+	<img src="https://github.com/songlin81/flutter_shop/blob/master/lib/memo/11.jpg" alt="Img 11" width="200"/>
 </p>
 
 [Link to live demo](slides.gif)
