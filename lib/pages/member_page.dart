@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttershop/pages/dialogs/stylingModalDialogs.dart';
 import '../routers/application.dart';
+import '../pages/dialogs/customModalDialogs.dart';
+import 'dialogs/customModalDialogsWithImage.dart';
 
 class MemberPage extends StatelessWidget {
   @override
@@ -89,35 +92,104 @@ class MemberPage extends StatelessWidget {
           ),
           Container(
             width: ScreenUtil().setWidth(187),
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.query_builder, size: 30),
-                Text('待发货')
-              ],
+            child: InkWell(
+              //onTap: (){ showSimpleCustomDialog(context); },
+              onTap: (){ CustomModalDialogs().showSimpleCustomDialog(context, 'Goto push message'); },
+              child: Column(
+                children: <Widget>[
+                  Icon(Icons.query_builder, size: 30),
+                  Text('待发货')
+                ],
+              ),
             ),
           ),
           Container(
             width: ScreenUtil().setWidth(187),
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.directions_car, size: 30),
-                Text('待收货')
-              ],
+            child: InkWell(
+              onTap: (){ StylingModalDialogs().showStylingCustomDialog(context, 'Goto push message'); },
+              child: Column(
+                children: <Widget>[
+                  Icon(Icons.directions_car, size: 30),
+                  Text('待收货')
+                ],
+              ),
             ),
           ),
           Container(
             width: ScreenUtil().setWidth(187),
-            child: Column(
-              children: <Widget>[
-                Icon(Icons.content_paste, size: 30),
-                Text('待评价')
-              ],
-            ),
+            child: InkWell(
+              onTap: (){ CustomModalDialogsWithImage().showCustomDialogWithImage(context, 'Goto push message'); },
+              child: Column(
+                children: <Widget>[
+                  Icon(Icons.content_paste, size: 30),
+                  Text('待评价')
+                ],
+              ),
+            )
           )
         ],
       ),
     );
   }
+
+//  void showSimpleCustomDialog(BuildContext context) {
+//    Dialog simpleDialog = Dialog(
+//      shape: RoundedRectangleBorder(
+//        borderRadius: BorderRadius.circular(12.0),
+//      ),
+//      child: Container(
+//        height: 300.0,
+//        width: 300.0,
+//        child: Column(
+//          mainAxisAlignment: MainAxisAlignment.center,
+//          children: <Widget>[
+//            Padding(
+//              padding: EdgeInsets.all(15.0),
+//              child: Text(
+//                'Simpe Custom Modal Dialog....',
+//                style: TextStyle(color: Colors.red),
+//              ),
+//            ),
+//            Padding(
+//              padding: const EdgeInsets.only(left: 10, right: 10, top: 50),
+//              child: Row(
+//                mainAxisAlignment: MainAxisAlignment.center,
+//                crossAxisAlignment: CrossAxisAlignment.end,
+//                children: <Widget>[
+//                  RaisedButton(
+//                    color: Colors.blue,
+//                    onPressed: () {
+//                      Navigator.of(context).pop();
+//                      Application.router.navigateTo(context, "/jg");
+//                    },
+//                    child: Text(
+//                      'Okay',
+//                      style: TextStyle(fontSize: 18.0, color: Colors.white),
+//                    ),
+//                  ),
+//                  SizedBox(
+//                    width: 20,
+//                  ),
+//                  RaisedButton(
+//                    color: Colors.red,
+//                    onPressed: () {
+//                      Navigator.of(context).pop();
+//                    },
+//                    child: Text(
+//                      'Cancel!',
+//                      style: TextStyle(fontSize: 18.0, color: Colors.white),
+//                    ),
+//                  )
+//                ],
+//              ),
+//            ),
+//          ],
+//        ),
+//      ),
+//    );
+//    showDialog(
+//        context: context, builder: (BuildContext context) => simpleDialog);
+//  }
 
   Widget _myListTile(String title) {
     return Container(
