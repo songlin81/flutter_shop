@@ -69,8 +69,8 @@ class MemberPage extends StatelessWidget {
   Widget _orderType(context){
     return Container(
       margin: EdgeInsets.only(top: 5),
-      width: ScreenUtil().setWidth(750),
-      height: ScreenUtil().setHeight(150),
+      width: ScreenUtil().setWidth(740),
+      height: ScreenUtil().setHeight(187),
       padding: EdgeInsets.only(top: 20),
       color: Colors.white,
       child: Row(

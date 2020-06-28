@@ -322,6 +322,7 @@ class Recommend extends StatelessWidget{
 
   Widget _titleWidget(){
     return Container(
+      height: ScreenUtil().setHeight(80),
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.fromLTRB(10.0, 2.0, 0, 5.0),
       decoration: BoxDecoration(
@@ -332,7 +333,7 @@ class Recommend extends StatelessWidget{
       ),
       child: Text(
         '商品推荐',
-        style: TextStyle(color: Colors.pink),
+        style: TextStyle(color: Colors.pink, fontSize: ScreenUtil().setSp(30)),
       ),
     );
   }
@@ -343,8 +344,8 @@ class Recommend extends StatelessWidget{
         Application.router.navigateTo(context, "/detail?id=${recommendList[index]['goodsId']}");
       },
       child: Container(
-        height: ScreenUtil().setHeight(330),
-        width: ScreenUtil().setWidth(250),  // =750/3
+        height: ScreenUtil().setHeight(310),
+        width: ScreenUtil().setWidth(225),  // =750/3
         padding: EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -354,13 +355,16 @@ class Recommend extends StatelessWidget{
         ),
         child: Column(
           children: <Widget>[
-            Image.network(recommendList[index]['image'], width: ScreenUtil().setWidth(200)),
-            Text(new String.fromCharCodes(new Runes('\u0024'))+"${recommendList[index]['mallPrice']}"),
+            Image.network(recommendList[index]['image'], width: ScreenUtil().setWidth(225), height: ScreenUtil().setHeight(180),),
+            Text(
+                new String.fromCharCodes(new Runes('\u0024'))+"${recommendList[index]['mallPrice']}",
+                style: TextStyle(fontSize: ScreenUtil().setSp(40))),
             Text(
               new String.fromCharCodes(new Runes('\u0024'))+"${recommendList[index]['Price']}",
               style: TextStyle(
                 decoration: TextDecoration.lineThrough,
-                color: Colors.grey
+                color: Colors.grey,
+                  fontSize: ScreenUtil().setSp(40)
               ),
             )
           ],
@@ -371,7 +375,7 @@ class Recommend extends StatelessWidget{
 
   Widget _recommendList(){
     return Container(
-      height: ScreenUtil().setHeight(330),
+      height: ScreenUtil().setHeight(320),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: recommendList.length,
@@ -385,7 +389,7 @@ class Recommend extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(380),
+      height: ScreenUtil().setHeight(400),
       margin: EdgeInsets.only(top: 10.0),
       child: Column(
         children: <Widget>[
