@@ -1,5 +1,10 @@
 # Flutter e-Shop POC
 
+## Download
+<p float="left";>
+	<img src="https://github.com/songlin81/flutter_shop/blob/master/lib/memo/9.jpg" alt="Img 9" width="200"/>
+</p>
+
 ## Preview
 
 <p float="left";>
