@@ -2,7 +2,7 @@
 
 ## Download
 <p float="left";>
-	<img src="https://github.com/songlin81/flutter_shop/blob/master/lib/memo/9.jpg" alt="Img 9" width="200"/>
+	<img src="https://raw.githubusercontent.com/songlin81/flutter_shop/master/images/generate.gif" alt="Img 9" width="200"/>
 </p>
 
 ## Preview
