@@ -1,4 +1,4 @@
-const serviceUrl = 'http://47.104.244.246:5000/';
+const serviceUrl = 'http://81.70.9.51:5003/';
 
 const servicePath = {
   'homePageContent': serviceUrl+'homePageContent',

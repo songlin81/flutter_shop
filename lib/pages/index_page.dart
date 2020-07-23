@@ -25,23 +25,23 @@ import '../provide/currentIndex.dart';
 class IndexPage extends StatelessWidget{
 
     final List<BottomNavigationBarItem> bottomTabs = [
-    BottomNavigationBarItem(
-      icon: Icon(CupertinoIcons.home),
-      title: Text('首页')
-    ),
-    BottomNavigationBarItem(
-        icon: Icon(CupertinoIcons.search),
-        title: Text('分类')
-    ),
-    BottomNavigationBarItem(
-        icon: Icon(CupertinoIcons.shopping_cart),
-        title: Text('购物车')
-    ),
-    BottomNavigationBarItem(
-        icon: Icon(CupertinoIcons.profile_circled),
-        title: Text('会员中心')
-    )
-  ];
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.home),
+          title: Text('首页')
+        ),
+        BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.search),
+            title: Text('分类')
+        ),
+        BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.shopping_cart),
+            title: Text('购物车')
+        ),
+        BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.profile_circled),
+            title: Text('会员中心')
+        )
+    ];
 
   final List<Widget> tabBodies = [
     HomePage(),
@@ -55,9 +55,7 @@ class IndexPage extends StatelessWidget{
     ScreenUtil.init(context, width: 750, height: 1334);
     return Provide<CurrentIndexProvide>(
       builder: (context, child, val) {
-        int currentIndex = Provide
-            .value<CurrentIndexProvide>(context)
-            .currentIndex;
+        int currentIndex = Provide.value<CurrentIndexProvide>(context).currentIndex;
         return Scaffold(
             backgroundColor: Color.fromRGBO(244, 245, 245, 1),
             bottomNavigationBar: BottomNavigationBar(

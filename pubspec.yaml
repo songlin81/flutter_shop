@@ -37,7 +37,11 @@ dependencies:
   fluro: "^1.6.3"
   flutter_html: ^1.0.0-pre.1
   shared_preferences: ^0.5.1
-  jpush_flutter: ^0.0.11
+#  jpush_flutter:
+#    git:
+#      url: git://github.com/jpush/jpush-flutter-plugin.git
+#      ref: master
+  jpush_flutter: 0.5.5
 
 dev_dependencies:
   flutter_test:
