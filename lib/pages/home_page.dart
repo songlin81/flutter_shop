@@ -5,6 +5,7 @@ import 'package:fluttershop/model/category.dart';
 import 'package:fluttershop/provide/child_category.dart';
 import 'package:fluttershop/provide/currentIndex.dart';
 import 'package:provide/provide.dart';
+import '../app_localizations.dart';
 import '../service/service_method.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'dart:convert';
@@ -46,6 +47,10 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   @override
   Widget build(BuildContext context) {
     var formData = {'lon':'115.02932', 'lat':'35.76189'};
+
+    Locale locale = Localizations.localeOf(context);
+    print('--->'+locale.toString());
+
     return Scaffold(
       appBar: AppBar(title: Text('商城首页'),),
       body: FutureBuilder(
@@ -320,7 +325,7 @@ class Recommend extends StatelessWidget{
   final List recommendList;
   Recommend({Key key, this.recommendList}) : super(key: key);
 
-  Widget _titleWidget(){
+  Widget _titleWidget(context){
     return Container(
       height: ScreenUtil().setHeight(80),
       alignment: Alignment.centerLeft,
@@ -332,7 +337,7 @@ class Recommend extends StatelessWidget{
         )
       ),
       child: Text(
-        '商品推荐',
+        AppLocalizations.of(context).translate('ProdRecommend'), //'商品推荐',
         style: TextStyle(color: Colors.pink, fontSize: ScreenUtil().setSp(30)),
       ),
     );
@@ -393,7 +398,7 @@ class Recommend extends StatelessWidget{
       margin: EdgeInsets.only(top: 10.0),
       child: Column(
         children: <Widget>[
-          _titleWidget(),
+          _titleWidget(context),
           _recommendList()
         ],
       ),
