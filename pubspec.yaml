@@ -44,6 +44,8 @@ flutter:
   assets:
     - lang/en.json
     - lang/zh.json
+    - images/1129218.png
+    - images/1134354.png
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a

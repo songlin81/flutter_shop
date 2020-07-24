@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttershop/pages/widgets/JellyButton.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provide/provide.dart';
 import '../../provide/cart.dart';
@@ -82,11 +83,35 @@ class DetailsBottom extends StatelessWidget {
               width: ScreenUtil().setWidth(320),
               height: ScreenUtil().setHeight(80),
               color: Colors.green,
-              child: Text(
-                '加入购物车',
-                style: TextStyle(color: Colors.white,fontSize: ScreenUtil().setSp(28)),
-              ),
-            ) ,
+              child:
+                Row(
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.centerRight,
+                      width: ScreenUtil().setWidth(220),
+                      child: Text(
+                              '加入购物车',
+                              style: TextStyle(color: Colors.white,fontSize: ScreenUtil().setSp(28)),
+                      ),
+                    ),
+                    Container(
+                        alignment: Alignment.centerRight,
+                        width: ScreenUtil().setWidth(90),
+                      child: TestButton(onTap: () async{
+                          await Provide.value<CartProvide>(context).save(goodsId, goodsName, count, price, images);
+                          Fluttertoast.showToast(
+                              msg: "商品已加入购物车",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.CENTER,
+                              backgroundColor: Colors.black26,
+                              textColor: Colors.white,
+                              fontSize: 16.0
+                          );
+                        })
+                    )
+                  ]
+                )
+            )
           ),
           InkWell(
             onTap: () async{
@@ -107,4 +132,17 @@ class DetailsBottom extends StatelessWidget {
       ),
     );
   }
+}
+
+class TestButton extends JellyButton {
+  const TestButton({
+    VoidCallback onTap,
+    bool checked = false,
+  }) : super(
+    unCheckedImgAsset: 'images/1129218.png',
+    checkedImgAsset: 'images/1134354.png',
+    size: const Size(50.0, 50.0),
+    onTap: onTap,
+    checked: checked,
+  );
 }
