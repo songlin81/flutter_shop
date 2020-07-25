@@ -175,6 +175,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
+  fluwx:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: d6a2919cd1ab5a43050743b192c74a06417555e3
+      url: "https://github.com/OpenFlutter/fluwx.git"
+    source: git
+    version: "2.2.0"
   html:
     dependency: transitive
     description:
@@ -461,7 +470,7 @@ packages:
     source: hosted
     version: "0.1.4+1"
   webview_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: webview_flutter
       url: "https://pub.dartlang.org"

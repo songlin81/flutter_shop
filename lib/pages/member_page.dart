@@ -15,7 +15,7 @@ class MemberPage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           _topHeader(),
-          _orderTitle(),
+          _orderTitle(context),
           _orderType(context),
           _actionList()
         ],
@@ -52,7 +52,7 @@ class MemberPage extends StatelessWidget {
     );
   }
 
-  Widget _orderTitle(){
+  Widget _orderTitle(context){
     return Container(
       margin: EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
@@ -61,11 +61,14 @@ class MemberPage extends StatelessWidget {
           bottom: BorderSide(width: 1, color: Colors.black12)
         )
       ),
-      child: ListTile(
-        leading: Icon(Icons.list),
-        title: Text('我的订单'),
-        trailing: Icon(Icons.arrow_right),
-      ),
+      child: InkWell(
+        onTap: (){Application.router.navigateTo(context, "/web");},
+        child: ListTile(
+            leading: Icon(Icons.list),
+            title: Text('我的订单'),
+            trailing: Icon(Icons.arrow_right),
+        ),
+      )
     );
   }
 

@@ -7,6 +7,7 @@ class Routes {
   static String root = '/';
   static String detailsPage = '/detail';
   static String jgPage = '/jg';
+  static String webPage = '/web';
 
   static void configurateRoutes(Router router){
     router.notFoundHandler = new Handler(
@@ -17,5 +18,6 @@ class Routes {
 
     router.define(detailsPage, handler: detailsHandler);
     router.define(jgPage, handler: jgHandler);
+    router.define(webPage, handler: webHandler);
   }
 }

@@ -30,6 +30,9 @@ dependencies:
 #      url: git://github.com/jpush/jpush-flutter-plugin.git
 #      ref: master
   jpush_flutter: 0.5.5
+  webview_flutter: ^0.3.22+1
+  fluwx:
+    git: https://github.com/OpenFlutter/fluwx.git
   flutter_localizations:
     sdk: flutter
 
