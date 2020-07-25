@@ -118,7 +118,8 @@ class MemberPage extends StatelessWidget {
           Container(
             width: ScreenUtil().setWidth(187),
             child: InkWell(
-              onTap: (){ CustomModalDialogsWithImage().showCustomDialogWithImage(context, 'Goto push message'); },
+              onTap: (){
+                  CustomModalDialogsWithImage().showCustomDialogWithImage(context, 'Goto push message');},
               child: Column(
                 children: <Widget>[
                   Icon(Icons.content_paste, size: 30),

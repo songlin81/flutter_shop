@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttershop/routers/application.dart';
 
@@ -73,9 +76,9 @@ class CustomModalDialogsWithImage {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    //onPressed: () { exit(0); },
+                    //onPressed: () { Navigator.of(context).pop(); },
+                    onPressed: () async { await pop(); },
                     child: Text(
                       'Cancel',
                       style: TextStyle(fontSize: 15.0, color: Colors.white),
@@ -92,4 +95,10 @@ class CustomModalDialogsWithImage {
       context: context,
       builder: (BuildContext context) => dialogWithImage);
     }
+
+  static Future<void> pop() async {
+    await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+  }
 }
+
+
